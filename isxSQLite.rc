@@ -53,8 +53,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 2008,0,0,0122
- PRODUCTVERSION 2008,0,0,0122
+ FILEVERSION 2012,0,0,0124
+ PRODUCTVERSION 2012,0,0,0124
  FILEFLAGSMASK 0x17L
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -72,13 +72,13 @@ BEGIN
             VALUE "Comments", "This application extension requires InnerSpace (www.lavishsoft.com)"
             VALUE "CompanyName", "isxGames.com"
             VALUE "FileDescription", "isxSQLite"
-            VALUE "FileVersion", "2008, 0, 0,0122"
+            VALUE "FileVersion", "2012, 0, 0,0124"
             VALUE "InternalName", "isxSQLite"
             VALUE "LegalCopyright", "Copyright (C) 2011-2012 by Amadeus"
             VALUE "LegalTrademarks", "isxSQLite is a TM of isxGames.com  (Amadeus)"
             VALUE "OriginalFilename", "isxSQLite"
             VALUE "ProductName", "isxSQLite"
-            VALUE "ProductVersion", "2008, 0, 0,0122"
+            VALUE "ProductVersion", "2012, 0, 0,0124"
         END
     END
     BLOCK "VarFileInfo"
