@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release - with libisxgames|Win32">
+      <Configuration>Release - with libisxgames</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{6053FCD4-5A35-49CE-B239-A9F74E25532B}</ProjectGuid>
+    <RootNamespace>isxSQLite</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC70.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">..\Extensions\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\Extensions\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)ISXDK\include;$(IncludePath)</IncludePath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">$(SolutionDir)..\libisxGames\include;$(SolutionDir)..\libisxGames\libcurl\7.24.0\include;$(IncludePath)</IncludePath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)ISXDK\lib\vs10;$(LibraryPath)</LibraryPath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">$(SolutionDir)..\libisxGames\libTidy\build\tidylib\Release;$(SolutionDir)..\libisxGames\lib;$(SolutionDir)..\libisxGames\libcurl\7.24.0\lib\LIB-Release;$(SolutionDir)..\libisxGames\libcurl\openssl-1.0.0g\out32;$(SolutionDir)..\libisxGames\libcurl\zlib-1.2.6\contrib\vstudio\vc10\x86\ZlibStatRelease;$(LibraryPath)</LibraryPath>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</PostBuildEventUseInBuild>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <OmitFramePointers>true</OmitFramePointers>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;ISX_EXPORTS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;COMPILING_EXTENSION;USE_LIBISXGAMES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)isxSQLite.dll</OutputFile>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>false</OptimizeReferences>
+      <EnableCOMDATFolding>false</EnableCOMDATFolding>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <ImportLibrary>$(OutDir)isxSQLite.lib</ImportLibrary>
+      <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalOptions>/ignore:4099  %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+    <PostBuildEvent>
+      <Message>Running isxSQLite Post-Build Events</Message>
+      <Command>PostBuildisxSQLite.bat
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <OmitFramePointers>true</OmitFramePointers>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;ISX_EXPORTS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;COMPILING_EXTENSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <MinimalRebuild>false</MinimalRebuild>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)isxSQLite.dll</OutputFile>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>false</OptimizeReferences>
+      <EnableCOMDATFolding>false</EnableCOMDATFolding>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <ImportLibrary>$(OutDir)isxSQLite.lib</ImportLibrary>
+      <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalOptions>/ignore:4099  %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+    <PostBuildEvent>
+      <Message>
+      </Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="DataTypes\isxSQLiteType.cpp" />
+    <ClCompile Include="DataTypes\SQLiteDBType.cpp" />
+    <ClCompile Include="DataTypes\SQLiteQueryType.cpp" />
+    <ClCompile Include="DataTypes\SQLiteTableType.cpp" />
+    <ClCompile Include="DataTypes\SQLiteType.cpp" />
+    <ClCompile Include="Globals.cpp" />
+    <ClCompile Include="isxSQLite.cpp" />
+    <ClCompile Include="libisxgames\libisxgames.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Services.cpp" />
+    <ClCompile Include="Commands.cpp" />
+    <ClCompile Include="ExtTopLevelObjects.cpp" />
+    <ClCompile Include="SQLite\CppSQLite3.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="SQLite\shell.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="SQLite\sqlite3.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="TopLevelObjects.cpp" />
+    <ClCompile Include="Pulse.cpp" />
+    <ClCompile Include="Utilities.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DataTypes\isxSQLiteType.h" />
+    <ClInclude Include="DataTypes\SQLiteDBType.h" />
+    <ClInclude Include="DataTypes\SQLiteQueryType.h" />
+    <ClInclude Include="DataTypes\SQLiteTableType.h" />
+    <ClInclude Include="DataTypes\SQLiteType.h" />
+    <ClInclude Include="Defines.h" />
+    <ClInclude Include="Globals.h" />
+    <ClInclude Include="isxSQLite.h" />
+    <ClInclude Include="Internals.h" />
+    <ClInclude Include="libisxgames\libisxgames.h" />
+    <ClInclude Include="Pulse.h" />
+    <ClInclude Include="SQLite\CppSQLite3.h" />
+    <ClInclude Include="SQLite\sqlite3.h" />
+    <ClInclude Include="SQLite\sqlite3ext.h" />
+    <ClInclude Include="Utilities.h" />
+    <ClInclude Include="Services.h" />
+    <ClInclude Include="Commands.h" />
+    <ClInclude Include="DataTypeList.h" />
+    <ClInclude Include="DataTypes.h" />
+    <ClInclude Include="ExtTopLevelObjects.h" />
+    <ClInclude Include="TopLevelObjects.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Extensions\isxSQLite-Release\isxSQLiteManifest.xml">
+      <SubType>Designer</SubType>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </None>
+    <None Include="isxSQLiteChanges.txt" />
+    <None Include="README.txt" />
+    <None Include="TODO.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="isxSQLite.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{96e58e95-66db-454e-951f-092f9efe5331}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm</Extensions>
+    </Filter>
+    <Filter Include="Source Files\Services">
+      <UniqueIdentifier>{7312d615-b9e9-4378-9b70-7d99b0c9d86f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Commands">
+      <UniqueIdentifier>{b2b354c0-e60f-43a7-985f-aeb1b2897456}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utilities">
+      <UniqueIdentifier>{a9ab6c04-2f3a-4b3e-bf33-2526dd04e90d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{501b41aa-e1d2-4713-b85b-562019ec57e1}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Utilities">
+      <UniqueIdentifier>{47fc9765-b196-4593-9dd3-768563d074c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Services">
+      <UniqueIdentifier>{eb12dbf9-7d5e-4ea1-abfe-ba4ca79f684a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Commands">
+      <UniqueIdentifier>{416d6371-5bbb-44c9-93eb-ab3aee439a43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{601c0644-cc5d-43d0-b153-c9e93c475359}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Patcher Files">
+      <UniqueIdentifier>{685510fb-ca85-4a4d-baf6-033c90a78721}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\VS Resource Files">
+      <UniqueIdentifier>{61d4a318-8b06-4aba-bad9-fc3aa48cb716}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\SQLite">
+      <UniqueIdentifier>{ae9c3f2e-7107-419f-badc-648e9abaa17a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SQLite">
+      <UniqueIdentifier>{e07b5237-98c0-4e1f-9659-a7681554c801}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\libisxgames">
+      <UniqueIdentifier>{2f60f2cb-be99-41e4-ade4-7e7458a25f81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Top Level Objects">
+      <UniqueIdentifier>{297543d6-07a8-4b38-a5d2-38f0263ef5ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DataTypes">
+      <UniqueIdentifier>{924c266e-59bf-41b0-99e3-9af9f00dafc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Top Level Objects">
+      <UniqueIdentifier>{a0d7125a-66c7-4d10-b091-24c186cc2ce6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\DataTypes">
+      <UniqueIdentifier>{59380729-f8b5-4764-b303-7900f2c07988}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DataTypes\SQLiteQueryType">
+      <UniqueIdentifier>{337fb911-e152-4ee6-aa9f-2eb8c1e95c1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DataTypes\SQLiteTableType">
+      <UniqueIdentifier>{1762f377-101c-4649-90ff-582a6de7c471}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DataTypes\SQLiteDBType">
+      <UniqueIdentifier>{44e9bb7b-c13a-4835-a307-b4067cf097de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DataTypes\SQLiteType">
+      <UniqueIdentifier>{c50c2572-c423-4979-851b-109bcea2c546}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DataTypes\isxSQLiteType">
+      <UniqueIdentifier>{b44ac73a-d71c-4b1a-9436-493443d25b24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utilities\Pulse">
+      <UniqueIdentifier>{1ee8544a-d776-4a34-ba3e-f7a83ea18b31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Text Files">
+      <UniqueIdentifier>{320ba4a5-eecc-4cc1-b475-261e9171ca6d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Globals.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Services.cpp">
+      <Filter>Source Files\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="Commands.cpp">
+      <Filter>Source Files\Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Utilities.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="isxSQLite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SQLite\shell.c">
+      <Filter>Source Files\SQLite</Filter>
+    </ClCompile>
+    <ClCompile Include="SQLite\sqlite3.c">
+      <Filter>Source Files\SQLite</Filter>
+    </ClCompile>
+    <ClCompile Include="libisxgames\libisxgames.cpp">
+      <Filter>Source Files\libisxgames</Filter>
+    </ClCompile>
+    <ClCompile Include="SQLite\CppSQLite3.cpp">
+      <Filter>Source Files\SQLite</Filter>
+    </ClCompile>
+    <ClCompile Include="ExtTopLevelObjects.cpp">
+      <Filter>Source Files\Top Level Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="TopLevelObjects.cpp">
+      <Filter>Source Files\Top Level Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="DataTypes\SQLiteQueryType.cpp">
+      <Filter>Source Files\DataTypes\SQLiteQueryType</Filter>
+    </ClCompile>
+    <ClCompile Include="DataTypes\SQLiteTableType.cpp">
+      <Filter>Source Files\DataTypes\SQLiteTableType</Filter>
+    </ClCompile>
+    <ClCompile Include="DataTypes\SQLiteDBType.cpp">
+      <Filter>Source Files\DataTypes\SQLiteDBType</Filter>
+    </ClCompile>
+    <ClCompile Include="DataTypes\SQLiteType.cpp">
+      <Filter>Source Files\DataTypes\SQLiteType</Filter>
+    </ClCompile>
+    <ClCompile Include="DataTypes\isxSQLiteType.cpp">
+      <Filter>Source Files\DataTypes\isxSQLiteType</Filter>
+    </ClCompile>
+    <ClCompile Include="Pulse.cpp">
+      <Filter>Source Files\Utilities\Pulse</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Defines.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Globals.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Internals.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Utilities.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="Services.h">
+      <Filter>Header Files\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands.h">
+      <Filter>Header Files\Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="DataTypeList.h">
+      <Filter>Header Files\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="DataTypes.h">
+      <Filter>Header Files\DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="isxSQLite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SQLite\CppSQLite3.h">
+      <Filter>Header Files\SQLite</Filter>
+    </ClInclude>
+    <ClInclude Include="SQLite\sqlite3.h">
+      <Filter>Header Files\SQLite</Filter>
+    </ClInclude>
+    <ClInclude Include="SQLite\sqlite3ext.h">
+      <Filter>Header Files\SQLite</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtTopLevelObjects.h">
+      <Filter>Header Files\Top Level Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="TopLevelObjects.h">
+      <Filter>Header Files\Top Level Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="DataTypes\SQLiteQueryType.h">
+      <Filter>Source Files\DataTypes\SQLiteQueryType</Filter>
+    </ClInclude>
+    <ClInclude Include="DataTypes\SQLiteTableType.h">
+      <Filter>Source Files\DataTypes\SQLiteTableType</Filter>
+    </ClInclude>
+    <ClInclude Include="DataTypes\SQLiteDBType.h">
+      <Filter>Source Files\DataTypes\SQLiteDBType</Filter>
+    </ClInclude>
+    <ClInclude Include="DataTypes\SQLiteType.h">
+      <Filter>Source Files\DataTypes\SQLiteType</Filter>
+    </ClInclude>
+    <ClInclude Include="DataTypes\isxSQLiteType.h">
+      <Filter>Source Files\DataTypes\isxSQLiteType</Filter>
+    </ClInclude>
+    <ClInclude Include="Pulse.h">
+      <Filter>Source Files\Utilities\Pulse</Filter>
+    </ClInclude>
+    <ClInclude Include="libisxgames\libisxgames.h">
+      <Filter>Source Files\libisxgames</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Extensions\isxSQLite-Release\isxSQLiteManifest.xml">
+      <Filter>Resources\Patcher Files</Filter>
+    </None>
+    <None Include="TODO.txt">
+      <Filter>Resources\Text Files</Filter>
+    </None>
+    <None Include="README.txt">
+      <Filter>Resources\Text Files</Filter>
+    </None>
+    <None Include="isxSQLiteChanges.txt">
+      <Filter>Resources\Patcher Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="isxSQLite.rc">
+      <Filter>Resources\VS Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

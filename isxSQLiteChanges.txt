@@ -1,0 +1,191 @@
+April 1, 2012
+[isxSQLite-20120401.0004]
+* Added new MEMBER to the 'sqlite' datatype:
+  1. Escape_String[<STRING>]          (string type)
+  (This will return the results similar to "sqlite3_mprintf("%q",STRING)".   It should also serve as a good 
+  replacement for the php function sqlite_escape_string().
+  - Examples:
+    a.   echo ${SQLite.Escape_String['test']}  returns:  ''test''
+
+
+February 7, 2011
+[isxSQLite-20110207.0001]
+CLARIFICATIONS:
+1.  The "LastRow" MEMBER of the sqlitedb datatype is somewhat of a misnomer due to how sqlite queries work.   Basically, what happens is that 
+    every time you use the "NextRow" method of the sqlitedb, you're requesting the next returned row of the query.   So, when you get to the 
+	last row and do a 'NextRow', sqlite basically says NOMOREROWS, returns a blank row, and isxSQLite sets the "LastRow" flag.   (This explains
+	why the do/while loop in the tutorial scripts works as it is.)
+2.  "ExecQuery" and "GetTable" statements which do not return any results (or result in an error) finalize automatically.  
+
+
+February 3, 2011
+[isxSQLite-20110203.0003]
+* You may now initialize sqlitedb, sqlitetable, and sqlitequery variables without setting them.
+CLARIFICATION:
+The "ExecDMLTransaction" METHOD of the 'sqlitedb' datatype inserts the the DML statement
+"BEGIN TRANSACTION;" prior to the ones you submit, and then includes "END TRANSACTION;" 
+after all of your statements have been executed.   In other words, you do *NOT* need to 
+include these directives when using the "ExecDMLTransaction" method.
+
+
+February 3, 2011
+[isxSQLite-20110203.0001]
+* The 'GetTable' MEMBER of the "sqlitedb" datatype may now be called using either the following:
+  - GetTable[<TableName>] 
+    GetTable[<Custom DML Statement>]	
+EXPLANATION:
+   First of all, the only difference between the version that utilizes the 'TableName' only and the one that allows
+for a 'Custom DML Statement' is that the first one uses the following hardcoded statement:  "SELECT * from TableName order by 1;"
+In other words, it retrieves the entire table.   Therefore, if you wanted to retrieve a *portion* of the table, then you could
+provide the DML statement that would be used instead.  (NOTE:  isxSQLite will assume you're using the 'Custom DML Statement' version
+if the argument provided does not exactly match one of the tables in the sqlitedb being queried.)
+   Now, the next obvious question is:  what's the difference between "GetTable" and "ExecQuery", since both are capable of returning
+the results of any DML statement you wish to use.   The answer is simple, "ExecQuery" invokes a callback for each row that is returned
+(allowing you to 'step' through the results one row at a time) while "GetTable" mallocs() the space necessary for the entire results 
+and returns it as an 'sqlitetable' datatype object.   Therefore, while "GetTable" may seem more useful at first glance, it could easily 
+start utilizing quite a bit of memory for large queries.  (So, it is VERY important to "Finalize" your sqlitetable objects once you're 
+finished with them!)
+
+
+February 1, 2011
+[isxSQLite-20110201.0003]
+****
+**** Please be sure to read through the file 'sqlite.iss' included with isxSQLite.  This 
+**** tutorial script includes extensive comments that should, when read alongside the changes in
+**** this document, provide most everything you need to know in order to utilize isxSQLite.
+****
+* Added new datatypes:
+  1. isxsqlite
+  2. sqlite
+  3. sqlitedb
+  4. sqlitequery 
+  5. sqlitetable
+* Added new TLO 'ISXSQLite' (returns an 'isxsqlite' datatype object)
+* Added new TLO 'SQLite' (returns an 'sqlite' datatype object)
+* Added new MEMBERS to the 'isxsqlite' datatype:
+  1. Version                                             (string type)
+  2. IsReady                                             (bool type)
+  3. IsLoading                                           (bool type)
+  4. InQuietMode                                         (bool type)
+* Added new METHOD to the 'isxsqlite' datatype:
+  1. QuietMode   (toggle)
+    ~ When 'QuietMode' is active, no error messages or method results
+	  are displayed in the console.  (However, all messages will still
+	  be available via applicable events.)
+* Added new MEMBERS to the 'sqlite' datatype:
+  1. OpenDB[<Name>,<path/to/filename>]                   (sqlitedb type)
+     OpenDB[<Name>,":Memory:"]                           (sqlitedb type)
+    NOTES:
+	   a.  If ":Memory:" is used as the second parameter, then the DB will
+	       only exist in memory.  These databases do not use disk space and
+		   will not be available once the DB is closed or isxSQLite is unloaded.
+	   b.  If the database file does not exist, it will be created.
+	   c.  The 'base path' is your "innerspace/Extensions" directory.  See
+	       scripting examples for more information.)
+	   d.  Database 'Names' must be unique for each isxsqlite session.
+	   e.  When opening a database for which no file already exists, the 
+	       database will be created with the following defaults:
+           "PRAGMA encoding = 'UTF-8';"       "PRAGMA auto_vacuum = 1;"
+           "PRAGMA cache_size = 2048;"        "PRAGMA page_size = 4096;"
+           "PRAGMA synchronous = NORMAL;"     "PRAGMA journal_mode = OFF;"
+           "PRAGMA temp_store = MEMORY;"      "PRAGMA synchronous = OFF;"
+		   (Obviously, you can override any of these settings, or add your
+		   own, by using the 'ExecDML' METHOD of the created 'sqlitedb'.)
+  2. GetQueryByID[<int>]                                 (sqlitequery type)
+* Added new METHODS to the 'sqlitedb' datatype:
+  1. Set[<sqlitedb>|<sqlitedb.ID>]
+  2. Close
+  3. ExecDML[<DML String>]          (Execute "Data Manipulation Language")
+    ~ See http://en.wikipedia.org/wiki/Data_Manipulation_Language (see also
+	  sample isxSQLite scripts for usage examples.)
+	~ NOTE:  This method is used when you do not need a return value after
+	         executing the desired DML statement.   You may assume that the
+			 execution was successful unless an isxSQLite_onError event is
+			 fired (which will also result in an error message in the console
+			 if 'QuietMode' is not active.)		
+  4. ExecDMLTransaction[<index:string>]
+    ~ This method is used if you have a large number of DML statements you
+	  want to execute at once.  Executing large numbers of statements at once
+	  via a transaction will result in much better performance and efficiency
+	  than doing them individually via 'ExecDML'.
+* Added new MEMBERS to the 'sqlitedb' datatype:
+  1. ExecQuery[<DML String>]                             (sqlitequery type)
+  2. TableExists[<TableName>]                            (bool type)          
+  3. GetTable[<TableName>]                               (sqlitetable type)        
+  (NOTE:  This should only be used when you want to dump the entire table.  
+          'ExecQuery' should be used for most data retrieval operations.) 
+  4. ID                                                  (string type)
+* Added new MEMBERS to the 'sqlitequery' datatype:
+  1. ID                                                  (int type)
+  2. NumRows                                             (int type)
+  3. NumFields                                           (int type)
+  4. GetFieldName[<Field#>]                              (string type)
+  5. GetFieldIndex[<FieldName>]                          (int type)
+  6. GetFieldDeclType[<Field#>]                          (string type)
+  7. GetFieldType[<Field#>]                              (int type)
+  8. GetFieldValue[<Field#>|<FieldName>, <TYPE>]         (varies) 
+	 (NOTE:  Use of this member without a 'TYPE' will return the 
+	         value as a string type.)
+  9. FieldIsNULL[<Field#>|<FieldName>]                   (bool type)
+  10.LastRow                                             (bool type
+  'TYPE' can be one of these values:  
+     a. 'string'      [returns string datatype object]
+	 b. 'int'         [returns int datatype object]
+	 c. 'double'      [returns double datatype object]
+	 d. 'float'       [returns double datatype object]   (this is identical to 'double')
+	 e. 'int64'       [returns int64 datatype object]
+* Added new METHODS to the 'sqlitequery' datatype:
+  1. NextRow       (moves query to next row in the return set)
+  2. Reset         (returns to first row in the set)
+  3. Finalize      (Finalizing a query is not required; however, leaving queries un-finalized,
+                    when they're no longer needed, will cause a memory leak.)
+  4. Set[<sqlitequery>|<sqlitequery.ID>]
+* Added new MEMBERS to the 'sqlitetable' datatype:
+  1. ID                                                  (int type)
+  2. NumRows                                             (int type)
+  3. NumFields                                           (int type)
+  4. GetFieldName[<Field#>]                              (string type)
+  5. GetFieldValue[<Field#>|<FieldName>, <TYPE>]         (varies) 
+	 (NOTE:  Use of this member without a 'TYPE' will return the 
+	         value as a string type.)
+  6. FieldIsNULL[<Field#>|<FieldName>]                   (bool type)
+  'TYPE' can be one of these values:  
+     a. 'string'      [returns string datatype object]
+	 b. 'int'         [returns int datatype object]
+	 c. 'double'      [returns double datatype object]
+	 d. 'float'       [returns double datatype object]   (this is identical to 'double')
+	 e. 'int64'       [returns int64 datatype object]
+* Added new METHODS to the 'sqlitequery' datatype:
+  1. SetRow[<Row#>]       
+  2. Finalize      (Finalizing a table is not required; however, leaving tables un-finalized,
+                    when they're no longer needed, will cause a memory leak.)
+  3. Set[<sqlitetable>|<sqlitetable.ID>]
+* Added new EVENTS
+  1. isxSQLite_onErrorMsg(int ErrorNum, string ErrorMsg)
+     (NOTE:  Not all errors have a unique ErrorNum.  In these cases, it will be
+	         -1.   However, ALL errors will have a unique "ErrorMsg".)
+  2. isxSQLite_onStatusMsg(string StatusMsg)
+     ~ Any 'spew' from isxSQLite which is not an error, will be echoed through
+	   this event (i.e., results from SQLiteDB:Close)
+* Added new COMMAND: "GetURL"
+  ~ Syntax:  GetURL "http://address/to/file"
+             GetURL "https://address/to/file"
+  ~ NOTES:
+    1.  https requests typically return one response; however, http requests (when the response is larger than 3000 or so bytes) will be
+        split in to multiple responses.
+    2.  https requests are not as fast as http requests (for obvious reasons).
+    3.  This command utilizes multiple threads; therefore, your script will not wait/freeze after the command is issued.
+    4.  You may issue multiple "GetURL" commands at once.  The requests will queue and be issued in the order they were received.
+    5.  Only http and https are supported at this time; however, any normalized URL should work regardless of the file type being retrieved.
+    6.  The response you receive from this command will be accessible via the "isxGames_onHTTPResponse" event.
+* Added new EVENT
+  1. isxGames_onHTTPResponse(int Size, string URL, string IPAddress, int ResponseCode, float TransferTime, string ResponseText, string ParsedBody)
+		 ~ This event only fires for responses that occur due to the "GetURL" command being utilized
+		 ~ "Size" is in bytes
+		 ~ "URL" should match the URL issued with the "GetURL" command (unless modified by the server)
+		 ~ "ResponseText" is the entire response text unparsed (ie, including all html/xml tags)
+		 ~ "ParsedBody" will return the plain text of the <body> section of an html document.  However, at this time it only works for simple documents
+		   with only plain text between the <body></body> tags.  I will be improving upon this in the future.
+* You can test the new "GetURL" command with the new event with either of these URLs:
+  ~ https://www.isxgames.com/libcurltest.html
+  ~ http://www.isxgames.com/libcurltest.html
