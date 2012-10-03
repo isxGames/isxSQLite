@@ -44,3 +44,8 @@ isxSQLite.vcxproj.user
 PostBuildisxSQLite.bat
 isxSQLite.cv
 *.suo
+Release
+Release - with libisxgames
+ipch
+*.sdf
+*.rc
