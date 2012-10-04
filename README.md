@@ -17,7 +17,7 @@ isxSQLite is designed for no-hassle compiling using Visual Studio 2010.  All req
 At this point, simply choose "Build->Build Solution" and the isxSQLite.dll will be generated.
 
 ### Technical Notes
-1.  The files within the `libisxgames` directory contain code taken from the library used by Amadeus for all extensions released at isxGames.com.   You will notice preprocessor directives throughout the project instructing the compiler when to use code from this extraction, and when to use the actual library (i.e., when Amadeus builds a binary for official release.)   Users may use the extracted code from libisxgames if they wish (it's released under the same license as the rest isxSQLite); however, most users should simply ignore any reference to `libisxgames` found within the solution.
+1.  The files within the `libisxgames` directory contain code taken from the library used by Amadeus for all extensions released at isxGames.com.   You will notice preprocessor directives throughout the solution instructing the compiler when to use code from this extraction, and when to use the actual library (i.e., when Amadeus builds a binary for official release.)   Users may use code from libisxgames if they wish (it's released under the same license as the rest of isxSQLite); however, most users should simply ignore any reference to `libisxgames` found within the isxSQLite source code.
 
 
 
