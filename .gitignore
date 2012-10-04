@@ -49,3 +49,4 @@ Release - with libisxgames
 ipch
 *.sdf
 *.rc
+*.opensdf
