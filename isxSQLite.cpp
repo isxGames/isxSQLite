@@ -191,6 +191,7 @@ void isxGamesExtension::Shutdown()
 			UnRegisterCommands();
 			if (gDetoursActive)
 				UnRegisterDetours();
+			UnRegisterTriggers();
 		}
 		UnRegisterExtTopLevelObjects();
 		UnRegisterExtDataTypes();

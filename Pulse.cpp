@@ -41,6 +41,7 @@ void Pulse()
 		pExtension->UnRegisterCommands();
 		if (gDetoursActive)
 			pExtension->UnRegisterDetours();
+		pExtension->UnRegisterTriggers();
 		gDidPreUnload = true;
 		gDoUnloadExtension = false;
 		return;
