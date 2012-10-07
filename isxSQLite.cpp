@@ -139,7 +139,11 @@ bool isxGamesExtension::Initialize2()
 {
 	// When compiled in "Release" configuration (i.e., without libisxgames) the patcher is bypassed entirely.  Therefore,
 	// the extension should continue with Post Initialization straight away at this point.
-	#if !USE_LIBISXGAMES
+	#if USE_LIBISXGAMES
+	strcpy(ExtensionName,"isxSQLite");
+	strcpy(ExtensionMajorVersion, __isxSQLiteVersion);
+	gRunPatcherNow = true;
+	#else
 	isxSQLitePostInitialize(0,NULL,NULL);
 	#endif
 
