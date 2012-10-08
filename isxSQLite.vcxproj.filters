@@ -201,14 +201,11 @@
     <None Include="..\Extensions\isxSQLite-Release\isxSQLiteManifest.xml">
       <Filter>Resources\Patcher Files</Filter>
     </None>
-    <None Include="TODO.txt">
-      <Filter>Resources\Text Files</Filter>
-    </None>
-    <None Include="README.txt">
-      <Filter>Resources\Text Files</Filter>
-    </None>
     <None Include="isxSQLiteChanges.txt">
       <Filter>Resources\Patcher Files</Filter>
+    </None>
+    <None Include="README.md">
+      <Filter>Resources\Text Files</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
