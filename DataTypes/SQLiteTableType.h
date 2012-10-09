@@ -51,6 +51,11 @@ public:
 	}
 	virtual bool FromText(LSOBJECTDATA &ObjectData, int argc, char *argv[])
 	{
+		//////////////////
+		// Although it's counter intuitive, it actually makes it easier for scripts if this function always returns true so that
+		// the variable can initialize.   Then, in the ToText, GetMethod, GetMember functions immediately check for validity
+		// and return false.
+		//////////////////
 		if (!argc) 
 			ObjectData.Int = 0;
 		else

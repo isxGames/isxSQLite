@@ -49,13 +49,16 @@ public:
 	}
 	virtual bool FromText(LSOBJECTDATA &ObjectData, int argc, char *argv[])
 	{
-		if (!argc) 
+		//////////////////
+		// Although it's counter intuitive, it actually makes it easier for scripts if this function always returns true so that
+		// the variable can initialize.   Then, in the ToText, GetMethod, GetMember functions immediately check for validity
+		// and return false.
+		//////////////////
+		if (!argc || strlen(argv[0]) <= 0)
 		{
 			ObjectData.CharPtr = nullptr;
 			return true;
 		}
-		if (strlen(argv[0]) <= 0)
-			return false;
 		
 		ObjectData.CharPtr=strdup(argv[0]);
 		return true;
@@ -68,6 +71,9 @@ public:
 	void FreeVariable(LSOBJECTDATA &ObjectData)
 	{
 		if (ObjectData.CharPtr)
+		{
 			free(ObjectData.CharPtr);
+			ObjectData.CharPtr = nullptr;
+		}
 	}
 };
