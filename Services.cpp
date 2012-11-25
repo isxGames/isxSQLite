@@ -87,10 +87,8 @@ void isxGamesExtension::RegisterServices()
 	// register any services.  Here we demonstrate a service that does not use a
 	// callback
 	// set up a 1-way service (broadcast only)
-	//	hisxAionService=pISInterface->RegisterService(this,"isxAion Service",0);
 	// broadcast a message, which is worthless at this point because nobody will receive it
 	// (nobody has had a chance to connect)
-	//	pISInterface->ServiceBroadcast(this,hisxAionService,ISXSERVICE_MSG+1,0);
 
 #define SERVICE(_name_,_callback_,_variable_) _variable_=pISInterface->RegisterService(this,_name_,_callback_);
 #include "Services.h"
@@ -100,8 +98,6 @@ void isxGamesExtension::RegisterServices()
 void isxGamesExtension::UnRegisterServices()
 {
 	// shutdown our own services
-//	if (hisxAionService)
-//		pISInterface->ShutdownService(this,hisxAionService);
 
 #define SERVICE(_name_,_callback_,_variable_) _variable_=pISInterface->ShutdownService(this,_variable_);
 #include "Services.h"

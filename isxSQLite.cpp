@@ -24,11 +24,15 @@
 #pragma comment(lib, "zlibstat.lib")
 #pragma comment(lib, "libcurl.lib")
 #endif
+#ifdef USE_LAVISHSCRIPT2
+#pragma comment(lib, "ls2module.lib")
+#include "LavishScript 2\LS2_sqllite.h"
+#endif
 
 ISXPreSetup("isxSQLite",isxGamesExtension);
 
 bool isxGamesExtension::Initialize(ISInterface *p_ISInterface)
-{
+{	
 	pISInterface=p_ISInterface;
 	gExtensionLoading = true;
 
@@ -57,6 +61,7 @@ bool isxGamesExtension::Initialize(ISInterface *p_ISInterface)
 		return false;
 	}
 
+#ifdef USE_LIBISXGAMES
 	// isxSQLite now requires .NET 2.0/3.5
 	pISInterface->TryInitialize();
 	if (!pISInterface->IsAvailable())
@@ -70,7 +75,8 @@ bool isxGamesExtension::Initialize(ISInterface *p_ISInterface)
 		}
 		return false;
 	}
-
+#endif
+	
 	// Register the extension
 	RegisterExtension();
 
@@ -105,7 +111,22 @@ bool isxGamesExtension::Initialize(ISInterface *p_ISInterface)
 	pExtension->RegisterExtDataTypes();
 	pExtension->RegisterExtTopLevelObjects();
 
-	// Register persistant class for .NET
+	#ifdef USE_LAVISHSCRIPT2	
+	{
+		LavishScript2::ILS2StandardEnvironment *pLS2Environment = 0;
+		if (pISInterface->GetLavishScript2Environment(LS2MODULE_API_VERSION,(void**)&pLS2Environment))
+		{
+			LavishScript2::ILS2Module::AttachEnvironment(pLS2Environment);
+
+			RegisterSQLiteDataTypeEnum();
+			RegisterSQLiteDBType();
+			RegisterSQLiteQueryType();
+			RegisterSQLiteTableType();
+		}
+	}
+	#endif
+
+	// Register persistent class for .NET
 	isxSQLiteClass = pISInterface->RegisterPersistentClass("isxSQLite");
 
 	// Register Events
@@ -199,7 +220,15 @@ void isxGamesExtension::Shutdown()
 		}
 		UnRegisterExtTopLevelObjects();
 		UnRegisterExtDataTypes();
+
+		#ifdef USE_LAVISHSCRIPT2
+		UnregisterSQLiteDataTypeEnum();
+		UnregisterSQLiteDBType();
+		UnregisterSQLiteQueryType();
+		UnregisterSQLiteTableType();
+		#endif
 	}
+
 
 	// Close/Unload xml files
 	pISInterface->UnloadSet(MainXMLFileID);

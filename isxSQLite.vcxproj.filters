@@ -78,6 +78,12 @@
     <Filter Include="Resources\Text Files">
       <UniqueIdentifier>{320ba4a5-eecc-4cc1-b475-261e9171ca6d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\LavishScript 2">
+      <UniqueIdentifier>{31b7dcc0-1387-4482-8691-fcd96e714640}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\LavishScript 2">
+      <UniqueIdentifier>{5bfa4f25-2d8e-41db-ade6-a40dcaf4e06f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Globals.cpp">
@@ -130,6 +136,18 @@
     </ClCompile>
     <ClCompile Include="Pulse.cpp">
       <Filter>Source Files\Utilities\Pulse</Filter>
+    </ClCompile>
+    <ClCompile Include="LavishScript 2\LS2_SQLiteDBType.cpp">
+      <Filter>Source Files\LavishScript 2</Filter>
+    </ClCompile>
+    <ClCompile Include="LavishScript 2\LS2_SQLiteTableType.cpp">
+      <Filter>Source Files\LavishScript 2</Filter>
+    </ClCompile>
+    <ClCompile Include="LavishScript 2\LS2_SQLiteQueryType.cpp">
+      <Filter>Source Files\LavishScript 2</Filter>
+    </ClCompile>
+    <ClCompile Include="LavishScript 2\LS2_SQLiteDataTypeEnum.cpp">
+      <Filter>Source Files\LavishScript 2</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -195,6 +213,9 @@
     </ClInclude>
     <ClInclude Include="libisxgames\libisxgames.h">
       <Filter>Source Files\libisxgames</Filter>
+    </ClInclude>
+    <ClInclude Include="LavishScript 2\LS2_sqllite.h">
+      <Filter>Header Files\LavishScript 2</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

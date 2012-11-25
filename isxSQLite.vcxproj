@@ -43,9 +43,9 @@
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\Extensions\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
-    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)ISXDK\include;$(IncludePath)</IncludePath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Program Files (x86)\LS2Module\sdk1\include;C:\Program Files (x86)\ISXDK\32a\include;$(SolutionDir)ISXDK\include;$(IncludePath)</IncludePath>
     <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">$(SolutionDir)..\libisxGames\include;$(SolutionDir)..\libisxGames\libcurl\7.24.0\include;$(IncludePath)</IncludePath>
-    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)ISXDK\lib\vs10;$(LibraryPath)</LibraryPath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Program Files (x86)\LS2Module\sdk1\lib\vs10;\Program Files (x86)\ISXDK\32a\lib\vs10;$(SolutionDir)ISXDK\lib\vs10;$(LibraryPath)</LibraryPath>
     <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">$(SolutionDir)..\libisxGames\libTidy\build\tidylib\Release;$(SolutionDir)..\libisxGames\lib;$(SolutionDir)..\libisxGames\libcurl\7.24.0\lib\LIB-Release;$(SolutionDir)..\libisxGames\libcurl\openssl-1.0.0g\out32;$(SolutionDir)..\libisxGames\libcurl\zlib-1.2.6\contrib\vstudio\vc10\x86\ZlibStatRelease;$(LibraryPath)</LibraryPath>
     <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</PostBuildEventUseInBuild>
   </PropertyGroup>
@@ -95,7 +95,7 @@
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <OmitFramePointers>true</OmitFramePointers>
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;ISX_EXPORTS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;COMPILING_EXTENSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;ISX_EXPORTS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;COMPILING_EXTENSION;USE_LAVISHSCRIPT2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <MinimalRebuild>false</MinimalRebuild>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
@@ -135,6 +135,9 @@
     <ClCompile Include="DataTypes\SQLiteType.cpp" />
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="isxSQLite.cpp" />
+    <ClCompile Include="LavishScript 2\LS2_SQLiteQueryType.cpp" />
+    <ClCompile Include="LavishScript 2\LS2_SQLiteTableType.cpp" />
+    <ClCompile Include="LavishScript 2\LS2_SQLiteDataTypeEnum.cpp" />
     <ClCompile Include="libisxgames\libisxgames.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">true</ExcludedFromBuild>
     </ClCompile>
@@ -164,6 +167,10 @@
     <ClInclude Include="Globals.h" />
     <ClInclude Include="isxSQLite.h" />
     <ClInclude Include="Internals.h" />
+    <ClCompile Include="LavishScript 2\LS2_SQLiteDBType.cpp">
+      <FileType>CppHeader</FileType>
+    </ClCompile>
+    <ClInclude Include="LavishScript 2\LS2_sqllite.h" />
     <ClInclude Include="libisxgames\libisxgames.h" />
     <ClInclude Include="Pulse.h" />
     <ClInclude Include="SQLite\CppSQLite3.h" />
