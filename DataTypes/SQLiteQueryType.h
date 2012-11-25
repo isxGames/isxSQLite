@@ -78,5 +78,6 @@ public:
 	}
 	void FreeVariable(LSOBJECTDATA &ObjectData)
 	{
+		ObjectData.Int = 0;
 	}
 };
