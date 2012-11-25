@@ -45,43 +45,43 @@
     <Filter Include="Source Files\libisxgames">
       <UniqueIdentifier>{2f60f2cb-be99-41e4-ade4-7e7458a25f81}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Top Level Objects">
-      <UniqueIdentifier>{297543d6-07a8-4b38-a5d2-38f0263ef5ac}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\DataTypes">
-      <UniqueIdentifier>{924c266e-59bf-41b0-99e3-9af9f00dafc1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Top Level Objects">
-      <UniqueIdentifier>{a0d7125a-66c7-4d10-b091-24c186cc2ce6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\DataTypes">
-      <UniqueIdentifier>{59380729-f8b5-4764-b303-7900f2c07988}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\DataTypes\SQLiteQueryType">
-      <UniqueIdentifier>{337fb911-e152-4ee6-aa9f-2eb8c1e95c1a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\DataTypes\SQLiteTableType">
-      <UniqueIdentifier>{1762f377-101c-4649-90ff-582a6de7c471}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\DataTypes\SQLiteDBType">
-      <UniqueIdentifier>{44e9bb7b-c13a-4835-a307-b4067cf097de}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\DataTypes\SQLiteType">
-      <UniqueIdentifier>{c50c2572-c423-4979-851b-109bcea2c546}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\DataTypes\isxSQLiteType">
-      <UniqueIdentifier>{b44ac73a-d71c-4b1a-9436-493443d25b24}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Utilities\Pulse">
       <UniqueIdentifier>{1ee8544a-d776-4a34-ba3e-f7a83ea18b31}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resources\Text Files">
       <UniqueIdentifier>{320ba4a5-eecc-4cc1-b475-261e9171ca6d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\LavishScript 2">
+    <Filter Include="Source Files\DataTypes %28LavishScript 1%29">
+      <UniqueIdentifier>{924c266e-59bf-41b0-99e3-9af9f00dafc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DataTypes %28LavishScript 1%29\SQLiteQueryType">
+      <UniqueIdentifier>{337fb911-e152-4ee6-aa9f-2eb8c1e95c1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DataTypes %28LavishScript 1%29\SQLiteTableType">
+      <UniqueIdentifier>{1762f377-101c-4649-90ff-582a6de7c471}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DataTypes %28LavishScript 1%29\SQLiteDBType">
+      <UniqueIdentifier>{44e9bb7b-c13a-4835-a307-b4067cf097de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DataTypes %28LavishScript 1%29\SQLiteType">
+      <UniqueIdentifier>{c50c2572-c423-4979-851b-109bcea2c546}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DataTypes %28LavishScript 1%29\isxSQLiteType">
+      <UniqueIdentifier>{b44ac73a-d71c-4b1a-9436-493443d25b24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DataTypes %28LavishScript 2%29">
       <UniqueIdentifier>{31b7dcc0-1387-4482-8691-fcd96e714640}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\LavishScript 2">
+    <Filter Include="Header Files\DataTypes %28LavishScript 1%29">
+      <UniqueIdentifier>{59380729-f8b5-4764-b303-7900f2c07988}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Top Level Objects %28LavishScript 1%29">
+      <UniqueIdentifier>{297543d6-07a8-4b38-a5d2-38f0263ef5ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Top Level Objects %28LavishScript 1%29">
+      <UniqueIdentifier>{a0d7125a-66c7-4d10-b091-24c186cc2ce6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\DataTypes %28LavishScript 2%29">
       <UniqueIdentifier>{5bfa4f25-2d8e-41db-ade6-a40dcaf4e06f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -114,40 +114,40 @@
       <Filter>Source Files\SQLite</Filter>
     </ClCompile>
     <ClCompile Include="ExtTopLevelObjects.cpp">
-      <Filter>Source Files\Top Level Objects</Filter>
+      <Filter>Source Files\Top Level Objects %28LavishScript 1%29</Filter>
     </ClCompile>
     <ClCompile Include="TopLevelObjects.cpp">
-      <Filter>Source Files\Top Level Objects</Filter>
+      <Filter>Source Files\Top Level Objects %28LavishScript 1%29</Filter>
     </ClCompile>
     <ClCompile Include="DataTypes\SQLiteQueryType.cpp">
-      <Filter>Source Files\DataTypes\SQLiteQueryType</Filter>
+      <Filter>Source Files\DataTypes %28LavishScript 1%29\SQLiteQueryType</Filter>
     </ClCompile>
     <ClCompile Include="DataTypes\SQLiteTableType.cpp">
-      <Filter>Source Files\DataTypes\SQLiteTableType</Filter>
+      <Filter>Source Files\DataTypes %28LavishScript 1%29\SQLiteTableType</Filter>
     </ClCompile>
     <ClCompile Include="DataTypes\SQLiteDBType.cpp">
-      <Filter>Source Files\DataTypes\SQLiteDBType</Filter>
+      <Filter>Source Files\DataTypes %28LavishScript 1%29\SQLiteDBType</Filter>
     </ClCompile>
     <ClCompile Include="DataTypes\SQLiteType.cpp">
-      <Filter>Source Files\DataTypes\SQLiteType</Filter>
+      <Filter>Source Files\DataTypes %28LavishScript 1%29\SQLiteType</Filter>
     </ClCompile>
     <ClCompile Include="DataTypes\isxSQLiteType.cpp">
-      <Filter>Source Files\DataTypes\isxSQLiteType</Filter>
+      <Filter>Source Files\DataTypes %28LavishScript 1%29\isxSQLiteType</Filter>
     </ClCompile>
     <ClCompile Include="Pulse.cpp">
       <Filter>Source Files\Utilities\Pulse</Filter>
     </ClCompile>
     <ClCompile Include="LavishScript 2\LS2_SQLiteDBType.cpp">
-      <Filter>Source Files\LavishScript 2</Filter>
+      <Filter>Source Files\DataTypes %28LavishScript 2%29</Filter>
     </ClCompile>
     <ClCompile Include="LavishScript 2\LS2_SQLiteTableType.cpp">
-      <Filter>Source Files\LavishScript 2</Filter>
+      <Filter>Source Files\DataTypes %28LavishScript 2%29</Filter>
     </ClCompile>
     <ClCompile Include="LavishScript 2\LS2_SQLiteQueryType.cpp">
-      <Filter>Source Files\LavishScript 2</Filter>
+      <Filter>Source Files\DataTypes %28LavishScript 2%29</Filter>
     </ClCompile>
     <ClCompile Include="LavishScript 2\LS2_SQLiteDataTypeEnum.cpp">
-      <Filter>Source Files\LavishScript 2</Filter>
+      <Filter>Source Files\DataTypes %28LavishScript 2%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -170,10 +170,10 @@
       <Filter>Header Files\Commands</Filter>
     </ClInclude>
     <ClInclude Include="DataTypeList.h">
-      <Filter>Header Files\DataTypes</Filter>
+      <Filter>Header Files\DataTypes %28LavishScript 1%29</Filter>
     </ClInclude>
     <ClInclude Include="DataTypes.h">
-      <Filter>Header Files\DataTypes</Filter>
+      <Filter>Header Files\DataTypes %28LavishScript 1%29</Filter>
     </ClInclude>
     <ClInclude Include="isxSQLite.h">
       <Filter>Header Files</Filter>
@@ -188,25 +188,25 @@
       <Filter>Header Files\SQLite</Filter>
     </ClInclude>
     <ClInclude Include="ExtTopLevelObjects.h">
-      <Filter>Header Files\Top Level Objects</Filter>
+      <Filter>Header Files\Top Level Objects %28LavishScript 1%29</Filter>
     </ClInclude>
     <ClInclude Include="TopLevelObjects.h">
-      <Filter>Header Files\Top Level Objects</Filter>
+      <Filter>Header Files\Top Level Objects %28LavishScript 1%29</Filter>
     </ClInclude>
     <ClInclude Include="DataTypes\SQLiteQueryType.h">
-      <Filter>Source Files\DataTypes\SQLiteQueryType</Filter>
+      <Filter>Source Files\DataTypes %28LavishScript 1%29\SQLiteQueryType</Filter>
     </ClInclude>
     <ClInclude Include="DataTypes\SQLiteTableType.h">
-      <Filter>Source Files\DataTypes\SQLiteTableType</Filter>
+      <Filter>Source Files\DataTypes %28LavishScript 1%29\SQLiteTableType</Filter>
     </ClInclude>
     <ClInclude Include="DataTypes\SQLiteDBType.h">
-      <Filter>Source Files\DataTypes\SQLiteDBType</Filter>
+      <Filter>Source Files\DataTypes %28LavishScript 1%29\SQLiteDBType</Filter>
     </ClInclude>
     <ClInclude Include="DataTypes\SQLiteType.h">
-      <Filter>Source Files\DataTypes\SQLiteType</Filter>
+      <Filter>Source Files\DataTypes %28LavishScript 1%29\SQLiteType</Filter>
     </ClInclude>
     <ClInclude Include="DataTypes\isxSQLiteType.h">
-      <Filter>Source Files\DataTypes\isxSQLiteType</Filter>
+      <Filter>Source Files\DataTypes %28LavishScript 1%29\isxSQLiteType</Filter>
     </ClInclude>
     <ClInclude Include="Pulse.h">
       <Filter>Source Files\Utilities\Pulse</Filter>
@@ -215,7 +215,7 @@
       <Filter>Source Files\libisxgames</Filter>
     </ClInclude>
     <ClInclude Include="LavishScript 2\LS2_sqllite.h">
-      <Filter>Header Files\LavishScript 2</Filter>
+      <Filter>Header Files\DataTypes %28LavishScript 2%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
