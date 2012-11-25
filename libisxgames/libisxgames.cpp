@@ -58,7 +58,7 @@ LSType *pSetType=0;
 ////////////////////////////////////////////////////////////////////
 //// Utility functions that are normally exported from libisxgames
 ////////////////////////////////////////////////////////////////////
-bool FileExists(char *strFilename)
+bool FileExists(const char *strFilename)
 {
 	struct stat stFileInfo;
 	bool blnReturn;
@@ -97,43 +97,41 @@ bool IsConsoleOpen()
 ////////////
 // Routines to spew information to debugger.  
 ////////////
-void DebugSpew(PCHAR szFormat, ...)
+void DebugSpew(const PCHAR szFormat, ...)
 {
-	CHAR szOutput[10000] = {0};
     va_list vaList;
 	va_start( vaList, szFormat );
-    vsprintf(szOutput,szFormat, vaList);
+	std::string output = format_arg_list(szFormat,vaList);
 
 	OutputDebugString("[isxSQLite]");
-    OutputDebugString(szOutput);
+    OutputDebugString(output.c_str());
     OutputDebugString("\n");
 
 	return;
 }
 
-void DebugSpew(int PipeToLoc, PCHAR szFormat,...)
+void DebugSpew(int PipeToLoc, const PCHAR szFormat,...)
 {
-    CHAR szOutput[10000] = {0};
     va_list vaList;
 	va_start( vaList, szFormat );
-    vsprintf(szOutput,szFormat, vaList);
+	std::string output = format_arg_list(szFormat,vaList);
  
 	if (PipeToLoc == TOFILEOVERWRITE)
 	{
-		strcat(szOutput,"\n");
-		WriteToFile("isxSQLite.txt",PIPE_TOFILE_OVERWRITE,szOutput);
+		output+="\n";
+		WriteToFile("isxSQLite.txt",PIPE_TOFILE_OVERWRITE,output.c_str());
 		return;
 	}
 	else if (PipeToLoc == TOFILE)
 	{
-		strcat(szOutput,"\n");
-		WriteToFile("isxSQLite.txt",PIPE_TOFILE_APPEND,szOutput);
+		output+="\n";
+		WriteToFile("isxSQLite.txt",PIPE_TOFILE_APPEND,output.c_str());
 		return;
 	}
 	else
 	{
 		OutputDebugString("[isxSQLite]");
-		OutputDebugString(szOutput);
+		OutputDebugString(output.c_str());
 		OutputDebugString("\n");
 		return;
 	}
@@ -141,7 +139,7 @@ void DebugSpew(int PipeToLoc, PCHAR szFormat,...)
 	return;
 }
 
-void WriteToFile(char *FileName, int Type, char* Output)
+void WriteToFile(const char *FileName, int Type, const char* Output)
 {
 	int mode, fd;
 	std::string Buffer;
@@ -151,7 +149,7 @@ void WriteToFile(char *FileName, int Type, char* Output)
 	if (Type == PIPE_TOFILE_APPEND)
 		mode = _O_RDWR|_O_APPEND|_O_CREAT;
  
-
+	
 	Buffer = format("%s\\%s",ModulePath,FileName);
 
 	if (Type == PIPE_TOFILE_OVERWRITE_RONLY)

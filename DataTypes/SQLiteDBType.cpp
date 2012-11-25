@@ -51,51 +51,13 @@ bool SQLiteDBType::GetMember(LSOBJECTDATA ObjectData, PLSTYPEMEMBER pMember, int
 		{
 			if (argc != 1)
 				return false;
-			CppSQLite3Query *q = new CppSQLite3Query();
-			try 
+			
+			if (Dest.Int = ::ExecQuery(pDB,argv[0],0))
 			{
-				*q = pDB->execQuery(argv[0]);
+				Dest.Type = pSQLiteQueryType;
+				return true;
 			}
-			catch (CppSQLite3Exception& e)
-			{
-				#pragma region isxSQLite_onErrorMsg
-				std::string ErrCode = format("%d",e.errorCode());
-				std::string s = format("SQLiteDBType.ExecQuery:: Error executing DML. (Error: %d:%s)",e.errorCode(),e.errorMessage());
-				if (!gQuietMode)
-					printf(s.c_str());
-				
-				char *argv[] = {
-					(char*)ErrCode.c_str(),
-					(char*)s.c_str()
-				};
-				pISInterface->ExecuteEvent(isxSQLite_onErrorMsg,0,2,argv,0);
-				#pragma endregion
-				delete q;
-				return false;
-			}
-
-			if (q->eof())
-			{
-				#pragma region isxSQLite_onErrorMsg
-				if (!gQuietMode)
-					printf("SQLiteDBType.ExecQuery:: Query returned no results.");
-				
-				char *argv[] = {
-					(char*)"-1",
-					(char*)"SQLiteDBType.ExecQuery:: Query returned no results."
-				};
-				pISInterface->ExecuteEvent(isxSQLite_onErrorMsg,0,2,argv,0);
-				#pragma endregion 
-				q->finalize();
-				delete q;
-				return false;
-			}
-
-			gQueriesCounter++;
-			gQueries.insert(make_pair(gQueriesCounter,q));
-			Dest.Int = gQueriesCounter;
-			Dest.Type = pSQLiteQueryType;
-			return true;
+			return false;
 		}
 		case TableExists:
 		{
@@ -110,47 +72,14 @@ bool SQLiteDBType::GetMember(LSOBJECTDATA ObjectData, PLSTYPEMEMBER pMember, int
 		{
 			if (argc != 1)
 				return false;
-
-			CppSQLite3Buffer bufSQL;
-			CppSQLite3Table *pTable = new CppSQLite3Table();
-			try 
+			
+			if (Dest.Int = OpenTable(pDB,argv[0],0))
 			{
-				if (pDB->tableExists(argv[0]))
-				{
-					bufSQL.format("select * from %s order by 1;", argv[0]);
-					*pTable = pDB->getTable(bufSQL);
-				}
-				else
-					*pTable = pDB->getTable(argv[0]);
+				Dest.Type = pSQLiteTableType;
+				return true;
 			}
-			catch (CppSQLite3Exception& e)
-			{
-				#pragma region isxSQLite_onErrorMsg
-				std::string ErrCode = format("%d",e.errorCode());
-				std::string s;
-				if (pDB->tableExists(argv[0]))
-					s = format("SQLiteDBType.GetTable:: Error getting table '%s'. (Error: %d:%s)",argv[0], e.errorCode(),e.errorMessage());
-				else
-					s = format("SQLiteDBType.GetTable:: Error getting table using custom DML Statment '%s'.  (Error: %d:%s)",argv[0], e.errorCode(),e.errorMessage());
-				if (!gQuietMode)
-					printf(s.c_str());
-				
-				char *argv[] = {
-					(char*)ErrCode.c_str(),
-					(char*)s.c_str()
-				};
-				pISInterface->ExecuteEvent(isxSQLite_onErrorMsg,0,2,argv,0);
-				#pragma endregion
-				pTable->finalize();
-				delete pTable;
-				return false;
-			}
-
-			gTablesCounter++;
-			gTables.insert(make_pair(gTablesCounter,pTable));
-			Dest.Int = gTablesCounter;
-			Dest.Type = pSQLiteTableType;
-			return true;
+			
+			return false;
 		}
 	}
 
@@ -177,41 +106,7 @@ bool SQLiteDBType::GetMethod(LSOBJECTDATA &ObjectData, PLSTYPEMETHOD pMethod, in
 	{
 		case Close:
 		{
-			std::string DBName = It->first;
-			try
-			{
-				pDB->close();
-			}
-			catch (CppSQLite3Exception& e)
-			{
-				#pragma region isxSQLite_onErrorMsg
-				std::string ErrCode = format("%d",e.errorCode());
-				std::string s = format("SQLiteDB.Close:: Error Closing '%s' (Error: %s)",DBName.c_str(),e.errorMessage());
-				if (!gQuietMode)
-					printf(s.c_str());
-				
-				char *argv[] = {
-					(char*)ErrCode.c_str(),
-					(char*)s.c_str()
-				};
-				pISInterface->ExecuteEvent(isxSQLite_onErrorMsg,0,2,argv,0);
-				#pragma endregion
-				return false;
-			}
-
-			delete pDB;
-			gDatabases.erase(It);
-			#pragma region isxSQLite_onStatusMsg
-			std::string s = format("SQLiteDB.Close:: Database '%s' closed.",DBName.c_str());
-			if (!gQuietMode)
-				printf(s.c_str());
-				
-			char *argv[] = {
-				(char*)s.c_str()
-			};
-			pISInterface->ExecuteEvent(isxSQLite_onStatusMsg,0,1,argv,0);
-			#pragma endregion
-			return true;
+			return CloseDatabase(It->first.c_str(),pDB);
 		}
 		case ExecDML:
 		{
@@ -229,28 +124,7 @@ bool SQLiteDBType::GetMethod(LSOBJECTDATA &ObjectData, PLSTYPEMETHOD pMethod, in
 				#pragma endregion
 				return false;
 			}
-			try 
-			{
-				pDB->execDML(argv[0]);
-			}
-			catch (CppSQLite3Exception& e)
-			{
-				#pragma region isxSQLite_onErrorMsg
-				std::string ErrCode = format("%d",e.errorCode());
-				std::string s = format("SQLiteDB.ExecDML:: Error executing SQLite DML statement \"%s\". (Error: %d:%s)", argv[0], e.errorCode(),e.errorMessage());
-				if (!gQuietMode)
-					printf(s.c_str());
-				
-				char *argv[] = {
-					(char*)ErrCode.c_str(),
-					(char*)s.c_str()
-				};
-				pISInterface->ExecuteEvent(isxSQLite_onErrorMsg,0,2,argv,0);
-				#pragma endregion
-				return false;
-			}
-
-			return true;
+			return ::ExecDML(pDB,argv[0],0);
 		}
 		case ExecDMLTransaction:
 		{

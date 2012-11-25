@@ -133,11 +133,11 @@ extern isxGamesExtension *pExtension;
 ////////////////////////////////////////////////////////////////////
 // Function declarations
 ////////////////////////////////////////////////////////////////////
-extern bool FileExists(char *strFilename);
+extern bool FileExists(const char *strFilename);
 extern bool IsConsoleOpen();
-extern void DebugSpew(PCHAR szFormat,...);
-extern void DebugSpew(int PipeToLoc, PCHAR szFormat,...);
-extern void WriteToFile(char *FileName, int Type, char* Output);
+extern void DebugSpew(const PCHAR szFormat,...);
+extern void DebugSpew(int PipeToLoc, const PCHAR szFormat,...);
+extern void WriteToFile(const char *FileName, int Type, const char* Output);
 extern std::string GetArgvStringForTestingCalls(int argc, char *argv[]);
 
 ////////////////////////////////////////////////////////////////////
