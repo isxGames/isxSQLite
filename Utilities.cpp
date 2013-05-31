@@ -43,8 +43,8 @@ CppSQLite3DB* OpenDatabase(std::string Name, std::string FileName, LavishScript2
 	{
 		pDatabase->open(FullPathAndFileName);
 	}
-    catch (CppSQLite3Exception& e)
-    {
+	catch (CppSQLite3Exception& e)
+	{
 		#pragma region isxSQLite_onErrorMsg
 		std::string ErrCode = format("%d",e.errorCode());
 		std::string s = format("OpenDB:: Error Opening %s (Error: %s)",FullPathAndFileName,e.errorMessage());
@@ -71,7 +71,7 @@ CppSQLite3DB* OpenDatabase(std::string Name, std::string FileName, LavishScript2
 		#pragma endregion
 		delete pDatabase;
 		return nullptr;
-    }
+	}
 
 	if (!bFileExists)
 	{
@@ -427,6 +427,39 @@ bool ExecDMLTransaction(CppSQLite3DB *pDB, LavishScript2::ILS2Array *pArray, Lav
 			};
 			pISInterface->ExecuteEvent(isxSQLite_onErrorMsg,0,2,argv,0);
 			#pragma endregion
+			try 
+			{
+				pDB->execDML( "ROLLBACK;" );
+			}
+			catch (CppSQLite3Exception& e)
+			{
+				#pragma region isxSQLite_onErrorMsg
+				std::string ErrCode = format("%d",e.errorCode());
+				std::string s = format("SQLiteDB.ExecDMLTransaction:: Error during SQLite Transaction Rollback. (Error: %d:%s)",e.errorCode(),e.errorMessage());
+
+				#ifdef USE_LAVISHSCRIPT2
+				if (ppException)
+				{
+					// need to convert to UTF-16 for LS2 exception
+					LavishScript2::LS2SmartRef<LavishScript2::ILS2String> pString;
+					LavishScript2::LS2SmartRef<LavishScript2::LS2Exception> pSubException;
+					LavishScript2::ILS2StandardEnvironment::s_pInstance->NewString(CP_ACP,s.c_str(),pString,pSubException);
+					*ppException = new LavishScript2::LS2StringException(pString->c_str());
+				}
+				#endif
+
+				if (!gQuietMode)
+					printf(s.c_str());
+				
+				char *argv[] = {
+					(char*)ErrCode.c_str(),
+					(char*)s.c_str()
+				};
+				pISInterface->ExecuteEvent(isxSQLite_onErrorMsg,0,2,argv,0);
+				#pragma endregion
+				return false;
+			}
+
 			return false;
 		}
 	}

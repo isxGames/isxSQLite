@@ -142,7 +142,7 @@ bool isxGamesExtension::Initialize(ISInterface *p_ISInterface)
 
 	//Open xml files
 	sprintf(XMLFileName,"%s\\isxSQLite.xml",ModulePath);
-    MainXMLFileID = pISInterface->OpenSettings(XMLFileName);
+	MainXMLFileID = pISInterface->OpenSettings(XMLFileName);
 
 	// Create Sets if they don't exist   (is this necessary?)
 	unsigned int GeneralSetID = pISInterface->FindSet(MainXMLFileID,"General");
@@ -181,7 +181,7 @@ void __cdecl isxSQLitePostInitialize(int argc, char *argv[], PLSOBJECT)
 	pExtension->RegisterAliases();
 	pExtension->RegisterDataTypes();
 	pExtension->RegisterTopLevelObjects();
-    pExtension->RegisterServices();
+	pExtension->RegisterServices();
 	pExtension->RegisterTriggers();
 	pExtension->RegisterDetours();
 

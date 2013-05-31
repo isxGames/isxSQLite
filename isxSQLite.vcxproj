@@ -44,9 +44,9 @@
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
     <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)ISXDK\LS2Module\include;$(SolutionDir)ISXDK\include;$(IncludePath)</IncludePath>
-    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">$(SolutionDir)..\libisxGames\include;$(SolutionDir)..\libisxGames\libcurl\7.24.0\include;$(IncludePath)</IncludePath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">$(SolutionDir)ISXDK\LS2Module\include;$(SolutionDir)..\libisxGames\include;$(SolutionDir)..\libisxGames\libcurl\7.24.0\include;$(IncludePath)</IncludePath>
     <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)ISXDK\LS2Module\lib\vs10;$(SolutionDir)ISXDK\lib\vs10;$(LibraryPath)</LibraryPath>
-    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">$(SolutionDir)..\libisxGames\libTidy\build\tidylib\Release;$(SolutionDir)..\libisxGames\lib;$(SolutionDir)..\libisxGames\libcurl\7.24.0\lib\LIB-Release;$(SolutionDir)..\libisxGames\libcurl\openssl-1.0.0g\out32;$(SolutionDir)..\libisxGames\libcurl\zlib-1.2.6\contrib\vstudio\vc10\x86\ZlibStatRelease;$(LibraryPath)</LibraryPath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">$(SolutionDir)..\libisxGames\libTidy\build\tidylib\Release;$(SolutionDir)..\libisxGames\lib;$(SolutionDir)..\libisxGames\libcurl\7.24.0\lib\LIB-Release;$(SolutionDir)..\libisxGames\libcurl\openssl-1.0.1e\out32;$(SolutionDir)..\libisxGames\libcurl\zlib-1.2.8\contrib\vstudio\vc10\x86\ZlibStatRelease;$(LibraryPath)</LibraryPath>
     <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</PostBuildEventUseInBuild>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">
@@ -57,7 +57,7 @@
       <OmitFramePointers>true</OmitFramePointers>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;ISX_EXPORTS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;COMPILING_EXTENSION;USE_LIBISXGAMES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;ISX_EXPORTS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;COMPILING_EXTENSION;USE_LIBISXGAMES;USE_LAVISHSCRIPT2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <MinimalRebuild>false</MinimalRebuild>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
