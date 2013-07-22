@@ -95,9 +95,9 @@ void RunThePatcher(bool UseTestVersion)
 		{
 			printf("\n");
 			if (!UseTestVersion)
-				Command = format("dotnet isxSQLitePatcher isxGamesPatcher isxSQLite %s https://www.isxgames.com/isxsqlite/isxSQLiteManifest.xml" ,verInfo.GetProductVersion().c_str());
+				Command = format("dotnet isxSQLitePatcher isxGamesPatcher isxSQLite %s http://www.isxgames.com/isxsqlite/isxSQLiteManifest.xml " ,verInfo.GetProductVersion().c_str());
 			else
-				Command = format("dotnet isxSQLitePatcher isxGamesPatcher isxSQLite %s https://www.isxgames.com/isxsqlite/isxSQLiteManifest-TestVersion.xml", verInfo.GetProductVersion().c_str());
+				Command = format("dotnet isxSQLitePatcher isxGamesPatcher isxSQLite %s http://www.isxgames.com/isxsqlite/isxSQLiteManifest-TestVersion.xml ", verInfo.GetProductVersion().c_str());
 			pISInterface->ExecuteCommand(Command.c_str());
 			if (UseTestVersion)
 				return;

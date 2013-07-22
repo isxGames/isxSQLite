@@ -11,7 +11,7 @@
 
 ////////////////////////////
 // VERSION
-#define __isxSQLiteVersion									"20130531"
+#define __isxSQLiteVersion									"20130609"
 //
 ///////////////////////////
 
