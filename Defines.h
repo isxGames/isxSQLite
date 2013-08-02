@@ -11,7 +11,23 @@
 
 ////////////////////////////
 // VERSION
-#define __isxSQLiteVersion									"20130609"
+#define EXTENSION_NAME										"isxSQLite"
+#ifdef USE_LIBISXGAMES
+#include <boost/preprocessor/cat.hpp>
+#include <boost/preprocessor/stringize.hpp>
+#define _EXT_VER_YEAR										2013
+#define _EXT_VER_MONTH										08
+#define _EXT_VER_DAY										01
+#define EXTENSION_CLASS										isxGamesExtension
+#define __isxSQLiteVersion									BOOST_PP_STRINGIZE(_EXT_VER_YEAR) BOOST_PP_STRINGIZE(_EXT_VER_MONTH) BOOST_PP_STRINGIZE(_EXT_VER_DAY)
+#define _EXT_VER_STR										BOOST_PP_STRINGIZE(_EXT_VER_YEAR) "." BOOST_PP_STRINGIZE(_EXT_VER_MONTH) "." BOOST_PP_STRINGIZE(_EXT_VER_DAY)
+#else
+#define _EXT_VER_YEAR										9999
+#define _EXT_VER_MONTH										12
+#define _EXT_VER_DAY										31
+#define __isxSQLiteVersion									"99991231"
+#define _EXT_VER_STR										"99991231"
+#endif
 //
 ///////////////////////////
 

@@ -1,6 +1,8 @@
 // Microsoft Visual C++ generated resource script.
 //
 #include "resource.h"
+#include "defines.h"
+
 
 #define APSTUDIO_READONLY_SYMBOLS
 /////////////////////////////////////////////////////////////////////////////
@@ -53,8 +55,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 2012,0,0,0007
- PRODUCTVERSION 2012,0,0,0007
+ FILEVERSION  _EXT_VER_YEAR,_EXT_VER_MONTH,_EXT_VER_DAY,0019
+ PRODUCTVERSION _EXT_VER_YEAR,_EXT_VER_MONTH,_EXT_VER_DAY,0019
  FILEFLAGSMASK 0x17L
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -72,13 +74,13 @@ BEGIN
             VALUE "Comments", "This application extension requires InnerSpace (www.lavishsoft.com)"
             VALUE "CompanyName", "isxGames.com"
             VALUE "FileDescription", "isxSQLite"
-            VALUE "FileVersion", "2012, 0, 0,0007"
+            VALUE "FileVersion",  _EXT_VER_STR ".0019"
             VALUE "InternalName", "isxSQLite"
-            VALUE "LegalCopyright", "Copyright (C) 2011-2013 by Amadeus"
+            VALUE "LegalCopyright", "Copyright (C) 2011-2013 by isxGames.com"
             VALUE "LegalTrademarks", "isxSQLite is a TM of isxGames.com  (Amadeus)"
-            VALUE "OriginalFilename", "isxSQLite"
+            VALUE "OriginalFilename", "isxSQLite.dll"
             VALUE "ProductName", "isxSQLite"
-            VALUE "ProductVersion", "2012, 0, 0,0007"
+            VALUE "ProductVersion", _EXT_VER_STR ".0019\0"
         END
     END
     BLOCK "VarFileInfo"

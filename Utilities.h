@@ -14,8 +14,13 @@
 
 namespace LavishScript2
 {
+#ifndef USE_LAVISHSCRIPT2
+	typedef void ILS2Array;
+	typedef void LS2Exception;
+#else
 	class ILS2Array;
 	class LS2Exception;
+#endif
 };
 
 // SQLite Related
@@ -24,8 +29,9 @@ extern int OpenTable(CppSQLite3DB *pDB, const char *name, LavishScript2::LS2Exce
 extern int ExecQuery(CppSQLite3DB *pDB, const char *sql, LavishScript2::LS2Exception **ppException___no_exception_for_empty_result_set=0);
 extern bool CloseDatabase(const char *name, CppSQLite3DB* pDB, LavishScript2::LS2Exception **ppException=0);
 extern bool ExecDML(CppSQLite3DB *pDB, const char *dml, LavishScript2::LS2Exception **ppException=0);
+#ifdef USE_LAVISHSCRIPT2
 extern bool ExecDMLTransaction(CppSQLite3DB *pDB, LavishScript2::ILS2Array *pArray, LavishScript2::LS2Exception **ppException=0);
-
+#endif ///USE_LAVISHSCRIPT2
 extern void CloseAllDatabases();
 extern void FinalizeAllQueries();
 extern void FinalizeAllTables();

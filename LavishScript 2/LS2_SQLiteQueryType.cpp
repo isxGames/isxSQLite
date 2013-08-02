@@ -1,5 +1,5 @@
 // LS2Type_Foo.cpp - example from a LavishScript 2.0 module
-
+#ifdef USE_LAVISHSCRIPT2
 // include LavishScript 2.0 Module stuff
 #include "LS2_sqllite.h"
 #include "../isxSQLite.h"
@@ -618,3 +618,4 @@ void UnregisterSQLiteQueryType()
 	g_pLS2_SQLiteQueryType->Delete();
 	g_pLS2_SQLiteQueryType=0;
 }
+#endif //USE_LAVISHSCRIPT2

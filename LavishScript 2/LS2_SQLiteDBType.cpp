@@ -1,3 +1,4 @@
+#ifdef USE_LAVISHSCRIPT2
 // LS2Type_Foo.cpp - example from a LavishScript 2.0 module
 
 // include LavishScript 2.0 Module stuff
@@ -300,3 +301,4 @@ void UnregisterSQLiteDBType()
 	g_pLS2_SQLiteDBType->Delete();
 	g_pLS2_SQLiteDBType=0;
 }
+#endif //USE_LAVISHSCRIPT2

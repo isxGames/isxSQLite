@@ -81,7 +81,7 @@ void Pulse()
 	return;
 }
 
-#if USE_LIBISXGAMES
+#ifdef USE_LIBISXGAMES
 void RunThePatcher(bool UseTestVersion)
 {
 	std::string Command;

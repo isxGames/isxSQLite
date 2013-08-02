@@ -349,7 +349,7 @@ bool ExecDML(CppSQLite3DB *pDB, const char *dml, LavishScript2::LS2Exception **p
 
 	return true;
 }
-
+#ifdef USE_LAVISHSCRIPT2
 bool ExecDMLTransaction(CppSQLite3DB *pDB, LavishScript2::ILS2Array *pArray, LavishScript2::LS2Exception **ppException)
 {
 	try 
@@ -498,7 +498,7 @@ bool ExecDMLTransaction(CppSQLite3DB *pDB, LavishScript2::ILS2Array *pArray, Lav
 
 	return true;	
 }
-
+#endif // USE_LAVISHSCRIPT2
 #pragma endregion
 
 #pragma region isxSQLite related
