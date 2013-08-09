@@ -1,6 +1,6 @@
 isxSQLite
 =========
-isxSQLite is an extension for [InnerSpace](http://www.lavishsoft.com/)   The primary purpose of isxSQLite is to provide the tools necessary for InnerSpace users to incorporate SQLite 3 functionality within Lavishscript, it is also being released as open source in order to provide the public with a working example of an InnerSpace extension.  Currently, the extension supports Lavishscript 1.0; however, it will be updated to additionally support Lavishscript 2.0 once it is released.
+isxSQLite is an extension for [InnerSpace](http://www.lavishsoft.com/)   The primary purpose of isxSQLite is to provide the tools necessary for InnerSpace users to incorporate SQLite 3 functionality within Lavishscript, it is also being released as open source in order to provide the public with a working example of an InnerSpace extension.  
 
 It is the goal of this project to provide the public with source code examples of all things possible with an InnerSpace extension.  Please feel free to create an "issue" here on github if you have any requests or questions that might be answered with sample code (additional functionality) within isxSQLite.
 
@@ -37,4 +37,4 @@ The source code is designed to be the primary documentation for isxSQLite; howev
 
 Copyright
 ---------
-isxSQLite is Copyright 2011-2012 by [Amadeus@isxGames.com](http://www.isxgames.com/).  Permission to use the source code in this project is granted under the Creative Commons Attribution 3.0 Unported (CC BY 3.0) license.  Visit http://creativecommons.org/licenses/by/3.0/ for a summary of what rights are granted under this license.
+isxSQLite is Copyright 2011-2013 by [Amadeus@isxGames.com](http://www.isxgames.com/).  Permission to use the source code in this project is granted under the Creative Commons Attribution 3.0 Unported (CC BY 3.0) license.  Visit http://creativecommons.org/licenses/by/3.0/ for a summary of what rights are granted under this license.
