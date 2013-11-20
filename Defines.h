@@ -16,8 +16,8 @@
 #include <boost/preprocessor/cat.hpp>
 #include <boost/preprocessor/stringize.hpp>
 #define _EXT_VER_YEAR										2013
-#define _EXT_VER_MONTH										08
-#define _EXT_VER_DAY										01
+#define _EXT_VER_MONTH										11
+#define _EXT_VER_DAY										19
 #define EXTENSION_CLASS										isxGamesExtension
 #define __isxSQLiteVersion									BOOST_PP_STRINGIZE(_EXT_VER_YEAR) BOOST_PP_STRINGIZE(_EXT_VER_MONTH) BOOST_PP_STRINGIZE(_EXT_VER_DAY)
 #define _EXT_VER_STR										BOOST_PP_STRINGIZE(_EXT_VER_YEAR) "." BOOST_PP_STRINGIZE(_EXT_VER_MONTH) "." BOOST_PP_STRINGIZE(_EXT_VER_DAY)
