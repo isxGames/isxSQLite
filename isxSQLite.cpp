@@ -13,20 +13,22 @@
 #include <delayimp.h>
 
 #pragma comment(lib,"delayimp")
-#pragma comment(lib,"isxdk")
 
 #ifdef USE_LIBISXGAMES
-#pragma comment(lib, "isxGames")
-#pragma comment(lib, "ws2_32.lib")
-#pragma comment(lib, "tidylib.lib")
-#pragma comment(lib, "libeay32.lib")
-#pragma comment(lib, "ssleay32.lib")
-#pragma comment(lib, "zlibstat.lib")
-#pragma comment(lib, "libcurl.lib")
+	#pragma comment(lib, "isxGames")
+	#pragma comment(lib, "ws2_32.lib")
+	#pragma comment(lib, "tidylib.lib")
+	#pragma comment(lib, "libeay32_lib.lib")
+	#pragma comment(lib, "ssleay32_lib.lib")
+	#pragma comment(lib, "zlibstat.lib")
+	#pragma comment(lib, "libcurl.lib")
+	#pragma comment(lib,"isxdk_md")
+#else
+	#pragma comment(lib,"isxdk")
 #endif
 #ifdef USE_LAVISHSCRIPT2
-#pragma comment(lib, "ls2module.lib")
-#include "LavishScript 2\LS2_sqllite.h"
+	#pragma comment(lib, "ls2module.lib")
+	#include "LavishScript 2\LS2_sqllite.h"
 #endif
 
 ISXPreSetup("isxSQLite",isxGamesExtension);

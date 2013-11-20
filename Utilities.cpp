@@ -11,6 +11,7 @@
 // This file contains "utility" functions.  See Utilities.h for 
 // declarations
 //--------------------------------
+#include <fstream>
 #include "isxSQLite.h"
 #ifdef USE_LAVISHSCRIPT2
 #include <ls2module.h>
@@ -37,7 +38,10 @@ CppSQLite3DB* OpenDatabase(std::string Name, std::string FileName, LavishScript2
 	if (FileName == ":Memory:" || FileName == ":memory:")
 		bFileExists = false;
 	else
-		bFileExists = FileExists(FullPathAndFileName);
+	{
+		std::ifstream infile(FullPathAndFileName);
+		bFileExists = infile.good();
+	}
 	
 	try 
 	{

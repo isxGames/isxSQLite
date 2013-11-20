@@ -1407,7 +1407,7 @@ sqlite3_stmt* CppSQLite3DB::compile(const char* szSQL)
 ** data in an SQLite database.  The code in this file is not used by any other
 ** part of the SQLite library.
 **
-** $Id: encode.c,v 1.10 2004/01/14 21:59:23 drh Exp $
+** $Id: CppSQLite3.cpp 708 2013-08-08 23:26:22Z CyberTech $
 */
 
 /*
