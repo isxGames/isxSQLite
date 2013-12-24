@@ -1,6 +1,6 @@
 isxSQLite
 =========
-isxSQLite is an extension for [InnerSpace](http://www.lavishsoft.com/)   The primary purpose of isxSQLite is to provide the tools necessary for InnerSpace users to incorporate SQLite 3 functionality within Lavishscript, it is also being released as open source in order to provide the public with a working example of an InnerSpace extension.  
+isxSQLite is an extension for [InnerSpace](http://www.lavishsoft.com/).   Although the primary purpose of isxSQLite is to provide the tools necessary for InnerSpace users to incorporate SQLite 3 functionality within Lavishscript, it is also being released as open source in order to provide the public with a working example of an InnerSpace extension.  
 
 It is the goal of this project to provide the public with source code examples of all things possible with an InnerSpace extension.  Please feel free to create an "issue" here on github if you have any requests or questions that might be answered with sample code (additional functionality) within isxSQLite.
 
@@ -8,9 +8,9 @@ It is the goal of this project to provide the public with source code examples o
 
 Building isxSQLite.dll
 --------------------
-isxSQLite is designed for no-hassle compiling using Visual Studio 2010.  All required libraries and headers are included here on the repository.
+isxSQLite is designed for no-hassle compiling using Visual Studio 2013.  All required libraries and headers are included here on the repository.
 
-1.  Double-click `isxSQLite.sln` to load the solution in Visual Studio 2010.
+1.  Double-click `isxSQLite.sln` to load the solution in Visual Studio 2013.
 2.  Ensure that the build configuration is set to 'Release' (default)
 3.  Right-click on the isxSQLite project in the Solution Explorer and select "Properties".  Ensure that the "Output Directory" is set to a valid location.  You will most likely want it to be your `/InnerSpace/Extensions/` directory.   (The default is `..\Extensions\`, which assumes that your isxSQLite directory is at `/InnerSpace/isxSQLite`.)
 
