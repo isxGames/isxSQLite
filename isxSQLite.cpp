@@ -38,6 +38,11 @@ bool isxGamesExtension::Initialize(ISInterface *p_ISInterface)
 	pISInterface=p_ISInterface;
 	gExtensionLoading = true;
 
+#ifdef USE_LIBISXGAMES
+	pISInterface->GetInnerSpacePath(ModulePath, sizeof(ModulePath)-1);
+	strcat(ModulePath, "\\Extensions\\");
+#endif
+
 	/////////////
 	// Set some interally used class memebers
 	if (pExtension)

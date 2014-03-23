@@ -76,7 +76,7 @@ BEGIN
             VALUE "FileDescription", "isxSQLite"
             VALUE "FileVersion",  _EXT_VER_STR ".0002"
             VALUE "InternalName", "isxSQLite"
-            VALUE "LegalCopyright", "Copyright (C) 2011-2013 by isxGames.com"
+            VALUE "LegalCopyright", "Copyright (C) 2011-2014 by isxGames.com"
             VALUE "LegalTrademarks", "isxSQLite is a TM of isxGames.com  (Amadeus)"
             VALUE "OriginalFilename", "isxSQLite.dll"
             VALUE "ProductName", "isxSQLite"
