@@ -37,4 +37,4 @@ The source code is designed to be the primary documentation for isxSQLite; howev
 
 Copyright
 ---------
-isxSQLite is Copyright 2011-2013 by [Amadeus@isxGames.com](http://www.isxgames.com/).  Permission to use the source code in this project is granted under the Creative Commons Attribution 3.0 Unported (CC BY 3.0) license.  Visit http://creativecommons.org/licenses/by/3.0/ for a summary of what rights are granted under this license.
+isxSQLite is Copyright 2011-2014 by [Amadeus@isxGames.com](http://www.isxgames.com/).  Permission to use the source code in this project is granted under the Creative Commons Attribution 3.0 Unported (CC BY 3.0) license.  Visit http://creativecommons.org/licenses/by/3.0/ for a summary of what rights are granted under this license.
