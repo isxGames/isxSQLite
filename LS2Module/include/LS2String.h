@@ -13,18 +13,18 @@ namespace LavishScript2
 		virtual int Delete()=0;
 
 		// retrieve the length of the string
-		virtual unsigned int GetLength()=0;
+		virtual size_t GetLength() = 0;
 		// 
 		virtual const wchar_t *c_str()=0;
 
 		// concatenate... string=string+more
 		virtual void Append(const wchar_t *text)=0;
 		// concatenate... string=string+more
-		virtual void Append(const wchar_t *text, unsigned int part_length)=0;
+		virtual void Append(const wchar_t *text, size_t part_length) = 0;
 
 		virtual void Assign(const wchar_t *text)=0;
 
-		virtual void Assign(const wchar_t *text, unsigned int part_length)=0;
+		virtual void Assign(const wchar_t *text, size_t part_length) = 0;
 
 		virtual bool GetLS2String8(LavishScript2::ILS2String8 **ppOutput, LavishScript2::LS2Exception **ppException)=0;
 	};
@@ -35,10 +35,12 @@ namespace LavishScript2
 		LS2String();
 
 		LS2String(const wchar_t *text);
-		LS2String(const wchar_t *text, unsigned int part_length);
+		LS2String(const wchar_t *text, size_t part_length);
 
 		// string will be formatted into a temporary buffer fitting this many wchars..
-		LS2String(unsigned int buffer_wchars,const wchar_t *szFormat, ...);
+		LS2String(size_t buffer_wchars, const wchar_t *szFormat, ...);
+
+		static bool Format(ILS2String **ppString, const wchar_t *szFormat, ...);
 
 		~LS2String(void);
 
@@ -62,18 +64,18 @@ namespace LavishScript2
 		}
 
 		// retrieve the length of the string
-		virtual unsigned int GetLength();
+		virtual size_t GetLength();
 		// 
 		virtual const wchar_t *c_str();
 
 		// concatenate... string=string+more
 		virtual void Append(const wchar_t *text);
 		// concatenate... string=string+more
-		virtual void Append(const wchar_t *text, unsigned int part_length);
+		virtual void Append(const wchar_t *text, size_t part_length);
 
 		virtual void Assign(const wchar_t *text);
 
-		virtual void Assign(const wchar_t *text, unsigned int part_length);
+		virtual void Assign(const wchar_t *text, size_t part_length);
 
 		virtual bool GetLS2String8(LavishScript2::ILS2String8 **ppOutput, LavishScript2::LS2Exception **ppException);
 
@@ -87,18 +89,18 @@ namespace LavishScript2
 		virtual int Delete()=0;
 
 		// retrieve the length of the string
-		virtual unsigned int GetLength()=0;
+		virtual size_t GetLength() = 0;
 		// 
 		virtual const char *c_str()=0;
 
 		// concatenate... string=string+more
 		virtual void Append(const char *text)=0;
 		// concatenate... string=string+more
-		virtual void Append(const char *text, unsigned int part_length)=0;
+		virtual void Append(const char *text, size_t part_length) = 0;
 
 		virtual void Assign(unsigned int code_page,const char *text)=0;
 
-		virtual void Assign(unsigned int code_page,const char *text, unsigned int part_length)=0;
+		virtual void Assign(unsigned int code_page, const char *text, size_t part_length) = 0;
 
 		virtual bool GetLS2String(LavishScript2::ILS2String **ppOutput, LavishScript2::LS2Exception **ppException)=0;
 	};
@@ -109,7 +111,7 @@ namespace LavishScript2
 		LS2String8(unsigned int code_page);
 
 		LS2String8(unsigned int code_page,const char *text);
-		LS2String8(unsigned int code_page,const char *text, unsigned int part_length);
+		LS2String8(unsigned int code_page, const char *text, size_t part_length);
 
 		// string will be formatted into a temporary buffer fitting this many chars..
 		LS2String8(unsigned int code_page,unsigned int buffer_chars,const char *szFormat, ...);
@@ -137,18 +139,18 @@ namespace LavishScript2
 		}
 
 		// retrieve the length of the string
-		virtual unsigned int GetLength();
+		virtual size_t GetLength();
 		// 
 		virtual const char *c_str();
 
 		// concatenate... string=string+more
 		virtual void Append(const char *text);
 		// concatenate... string=string+more
-		virtual void Append(const char *text, unsigned int part_length);
+		virtual void Append(const char *text, size_t part_length);
 
 		virtual void Assign(unsigned int code_page,const char *text);
 
-		virtual void Assign(unsigned int code_page,const char *text, unsigned int part_length);
+		virtual void Assign(unsigned int code_page, const char *text, size_t part_length);
 
 		virtual bool GetLS2String(LavishScript2::ILS2String **ppOutput, LavishScript2::LS2Exception **ppException);
 
