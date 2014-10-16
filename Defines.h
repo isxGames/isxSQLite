@@ -16,8 +16,8 @@
 #include <boost/preprocessor/cat.hpp>
 #include <boost/preprocessor/stringize.hpp>
 #define _EXT_VER_YEAR										2014
-#define _EXT_VER_MONTH										02
-#define _EXT_VER_DAY										22
+#define _EXT_VER_MONTH										10
+#define _EXT_VER_DAY										16
 #define EXTENSION_CLASS										isxGamesExtension
 #define __isxSQLiteVersion									BOOST_PP_STRINGIZE(_EXT_VER_YEAR) BOOST_PP_STRINGIZE(_EXT_VER_MONTH) BOOST_PP_STRINGIZE(_EXT_VER_DAY)
 #define _EXT_VER_STR										BOOST_PP_STRINGIZE(_EXT_VER_YEAR) "." BOOST_PP_STRINGIZE(_EXT_VER_MONTH) "." BOOST_PP_STRINGIZE(_EXT_VER_DAY)
@@ -37,6 +37,13 @@
 #if TESTCALLS
 #define TESTCALLS_TOFILE		1						// Default: 1 - Spew TESTCALLS output to file rather than the debugger
 #endif
+//
+////////////////////////////
+
+////////////////////////////
+// To compile with Lavishscript2 support
+//
+//#define USE_LAVISHSCRIPT2
 //
 ////////////////////////////
 

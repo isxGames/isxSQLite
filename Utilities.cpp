@@ -60,7 +60,7 @@ CppSQLite3DB* OpenDatabase(std::string Name, std::string FileName, LavishScript2
 			LavishScript2::LS2SmartRef<LavishScript2::ILS2String> pString;
 			LavishScript2::LS2SmartRef<LavishScript2::LS2Exception> pSubException;
 			LavishScript2::ILS2StandardEnvironment::s_pInstance->NewString(CP_ACP,s.c_str(),pString,pSubException);
-			*ppException = new LavishScript2::LS2StringException(pString->c_str());
+			*ppException = new LavishScript2::LS2Exception(pString->c_str());
 		}
 		#endif
 

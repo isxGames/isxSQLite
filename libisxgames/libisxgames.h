@@ -163,6 +163,7 @@ extern LSType *pByteType;
 extern LSType *pIntPtrType;
 extern LSType *pBoolPtrType;
 extern LSType *pFloatPtrType;
+extern LSType *pFloat64Type;
 extern LSType *pFloat64PtrType;
 extern LSType *pBytePtrType;
 extern LSType *pPoint3fType;

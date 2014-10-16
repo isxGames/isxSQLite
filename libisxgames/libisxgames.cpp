@@ -47,6 +47,7 @@ LSType *pByteType=0;
 LSType *pIntPtrType=0;
 LSType *pBoolPtrType=0;
 LSType *pFloatPtrType=0;
+LSType *pFloat64Type=0;
 LSType *pFloat64PtrType=0;
 LSType *pBytePtrType=0;
 LSType *pPoint3fType=0;
