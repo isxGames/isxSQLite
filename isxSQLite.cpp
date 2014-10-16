@@ -38,20 +38,22 @@ bool isxGamesExtension::Initialize(ISInterface *p_ISInterface)
 	pISInterface=p_ISInterface;
 	gExtensionLoading = true;
 
+	if (pISInterface == nullptr)
+	{
+		return false;
+	}
+
 #ifdef USE_LIBISXGAMES
 	pISInterface->GetInnerSpacePath(ModulePath, sizeof(ModulePath)-1);
 	strcat(ModulePath, "\\Extensions\\");
 #endif
 
 	/////////////
-	// Set some interally used class memebers
+	// Set some internally used class members
 	if (pExtension)
 	{
-		if (pISInterface)
-		{
-			pExtension->pUIElementTLO = pISInterface->IsTopLevelObject("UIElement");
-			pExtension->pLGUIElementDT = pISInterface->FindLSType("lguielement");
-		}
+		pExtension->pUIElementTLO = pISInterface->IsTopLevelObject("UIElement");
+		pExtension->pLGUIElementDT = pISInterface->FindLSType("lguielement");
 	}
 	//
 	/////////////

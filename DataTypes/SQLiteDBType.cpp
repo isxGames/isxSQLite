@@ -160,7 +160,7 @@ bool SQLiteDBType::GetMethod(LSOBJECTDATA &ObjectData, PLSTYPEMETHOD pMethod, in
 					#pragma endregion
 					return false;
 				}
-                if (Object.Type != pIndexType)
+				if (Object.Type != pIndexType)
 				{
 					#pragma region isxSQLite_onErrorMsg
 					std::string s = format("SQLiteDB:ExecDMLTransaction:: Invalid object type (%s)",Object.Type->GetName());
@@ -175,10 +175,10 @@ bool SQLiteDBType::GetMethod(LSOBJECTDATA &ObjectData, PLSTYPEMETHOD pMethod, in
 					#pragma endregion
 					return false;
 				}
-                
+
 				LSIndex *pIndex=(LSIndex*)Object.Ptr;
-                // ensure that the index subtype (i.e. index of what) is what we're expecting
-                if (pIndex && pIndex->GetType() != pMutableStringType)
+				// ensure that the index subtype (i.e. index of what) is what we're expecting
+				if (pIndex && pIndex->GetType() != pMutableStringType)
 				{
 					#pragma region isxSQLite_onErrorMsg
 					std::string s = format("SQLiteDB:ExecDMLTransaction:: Invalid object subtype (%s)",pIndex->GetType()->GetName());
@@ -218,7 +218,7 @@ bool SQLiteDBType::GetMethod(LSOBJECTDATA &ObjectData, PLSTYPEMETHOD pMethod, in
 				{
 					PLSOBJECT pDML = pIndex->GetItem(i);
 					utf8string *pString;
-					const char *pDMLString;
+					const char *pDMLString = nullptr;
 					if (pDML)
 					{
 						pString = (utf8string*)pDML->Ptr;
