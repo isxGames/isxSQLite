@@ -38,20 +38,22 @@ bool isxGamesExtension::Initialize(ISInterface *p_ISInterface)
 	pISInterface=p_ISInterface;
 	gExtensionLoading = true;
 
+	if (pISInterface == nullptr)
+	{
+		return false;
+	}
+
 #ifdef USE_LIBISXGAMES
 	pISInterface->GetInnerSpacePath(ModulePath, sizeof(ModulePath)-1);
 	strcat(ModulePath, "\\Extensions\\");
 #endif
 
 	/////////////
-	// Set some interally used class memebers
+	// Set some internally used class members
 	if (pExtension)
 	{
-		if (pISInterface)
-		{
-			pExtension->pUIElementTLO = pISInterface->IsTopLevelObject("UIElement");
-			pExtension->pLGUIElementDT = pISInterface->FindLSType("lguielement");
-		}
+		pExtension->pUIElementTLO = pISInterface->IsTopLevelObject("UIElement");
+		pExtension->pLGUIElementDT = pISInterface->FindLSType("lguielement");
 	}
 	//
 	/////////////
@@ -89,28 +91,30 @@ bool isxGamesExtension::Initialize(ISInterface *p_ISInterface)
 
 	// retrieve basic ISData types
 	// (NOTE:  These variables are declared in libisxgames.h, not Globals.h)
-	pStringType=pISInterface->FindLSType("string");
-	pMutableStringType=pISInterface->FindLSType("mutablestring");
-	pWStringType=pISInterface->FindLSType("unistring");
-	pUniStringType=pISInterface->FindLSType("unistring");
-	pIntType=pISInterface->FindLSType("int");
-	pUIntType=pISInterface->FindLSType("uint");
-	pInt64Type=pISInterface->FindLSType("int64");
-	pInt64PtrType=pISInterface->FindLSType("int64ptr");
-	pBoolType=pISInterface->FindLSType("bool");
-	pFloatType=pISInterface->FindLSType("float");
-	pTimeType=pISInterface->FindLSType("time");
-	pByteType=pISInterface->FindLSType("byte");
-	pIntPtrType=pISInterface->FindLSType("intptr");
-	pBoolPtrType=pISInterface->FindLSType("boolptr");
-	pFloatPtrType=pISInterface->FindLSType("floatptr");
-	pFloat64PtrType=pISInterface->FindLSType("float64ptr");
-	pBytePtrType=pISInterface->FindLSType("byteptr");
-	pPoint3fType=pISInterface->FindLSType("point3f");
-	pIndexType=pISInterface->FindLSType("index");
-	pVectorType=pISInterface->FindLSType("index");
-	pMapType=pISInterface->FindLSType("collection");
-	pSetType=pISInterface->FindLSType("set");
+	// retrieve basic ISData types
+	pStringType = pISInterface->FindLSType("string");
+	pMutableStringType = pISInterface->FindLSType("mutablestring");
+	pWStringType = pISInterface->FindLSType("unistring");
+	pUniStringType = pISInterface->FindLSType("unistring");
+	pIntType = pISInterface->FindLSType("int");
+	pUIntType = pISInterface->FindLSType("uint");
+	pInt64Type = pISInterface->FindLSType("int64");
+	pInt64PtrType = pISInterface->FindLSType("int64ptr");
+	pBoolType = pISInterface->FindLSType("bool");
+	pFloatType = pISInterface->FindLSType("float");
+	pTimeType = pISInterface->FindLSType("time");
+	pByteType = pISInterface->FindLSType("byte");
+	pIntPtrType = pISInterface->FindLSType("intptr");
+	pBoolPtrType = pISInterface->FindLSType("boolptr");
+	pFloatPtrType = pISInterface->FindLSType("floatptr");
+	pFloat64Type = pISInterface->FindLSType("float64");
+	pFloat64PtrType = pISInterface->FindLSType("float64ptr");
+	pBytePtrType = pISInterface->FindLSType("byteptr");
+	pPoint3fType = pISInterface->FindLSType("point3f");
+	pIndexType = pISInterface->FindLSType("index");
+	pVectorType = pISInterface->FindLSType("index");
+	pMapType = pISInterface->FindLSType("collection");
+	pSetType = pISInterface->FindLSType("set");
 
 	isxGamesExtension::ConnectPulseService();
 	ConnectServices();

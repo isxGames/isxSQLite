@@ -51,3 +51,5 @@ ipch
 *.rc
 *.opensdf
 Git-Info.txt
+/.HistoryData
+/.cov

@@ -195,9 +195,9 @@ bool SQLiteQueryType::GetMember(LSOBJECTDATA ObjectData, PLSTYPEMEMBER pMember, 
 					case RDT_DOUBLE:
 					{
 						if (IsNumber(argv[0]))
-							Dest.Float64Ptr = ISXGames::GetTempBuffer.Convert(pQuery->getFloatField(atoi(argv[0])));
+							Dest.Float64 = pQuery->getFloatField(atoi(argv[0]));
 						else
-							Dest.Float64Ptr = ISXGames::GetTempBuffer.Convert(pQuery->getFloatField(argv[0]));
+							Dest.Float64 = pQuery->getFloatField(argv[0]);
 
 						Dest.Type = pFloat64PtrType;
 						break;
@@ -205,11 +205,11 @@ bool SQLiteQueryType::GetMember(LSOBJECTDATA ObjectData, PLSTYPEMEMBER pMember, 
 					case RDT_INT64:
 					{
 						if (IsNumber(argv[0]))
-							Dest.Int64Ptr = ISXGames::GetTempBuffer.Convert(pQuery->getInt64Field(atoi(argv[0])));
+							Dest.Int64 = pQuery->getInt64Field(atoi(argv[0]));
 						else
-							Dest.Int64Ptr = ISXGames::GetTempBuffer.Convert(pQuery->getInt64Field(argv[0]));
+							Dest.Int64 = pQuery->getInt64Field(argv[0]);
 
-						Dest.Type = pInt64PtrType;
+						Dest.Type = pInt64Type;
 						break;
 					}
 					case RDT_INT:
