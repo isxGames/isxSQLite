@@ -40,11 +40,11 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">..\Extensions\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">Bin\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">Bin\Obj\$(Configuration)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">false</LinkIncremental>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\Extensions\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Bin\Obj\$(Configuration)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
     <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)LS2Module\include;$(SolutionDir)ISXDK\34\include;$(IncludePath)</IncludePath>
     <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">$(IncludePath)</IncludePath>
@@ -89,8 +89,7 @@
     </Link>
     <PostBuildEvent>
       <Message>Running isxSQLite Post-Build Events</Message>
-      <Command>PostBuildisxSQLite.bat
-</Command>
+      <Command>$(SolutionDir)PostBuild.bat "$(ProjectDir)" "$(TargetDir)" $(TargetName) TRUE $(ISXDKVERSION)</Command>
     </PostBuildEvent>
     <ResourceCompile>
       <PreprocessorDefinitions>USE_LIBISXGAMES;%(PreprocessorDefinitions)</PreprocessorDefinitions>

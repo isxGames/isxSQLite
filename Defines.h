@@ -15,9 +15,9 @@
 #ifdef USE_LIBISXGAMES
 #include <boost/preprocessor/cat.hpp>
 #include <boost/preprocessor/stringize.hpp>
-#define _EXT_VER_YEAR										2014
-#define _EXT_VER_MONTH										10
-#define _EXT_VER_DAY										16
+#define _EXT_VER_YEAR										2016
+#define _EXT_VER_MONTH										03
+#define _EXT_VER_DAY										30
 #define EXTENSION_CLASS										isxGamesExtension
 #define __isxSQLiteVersion									BOOST_PP_STRINGIZE(_EXT_VER_YEAR) BOOST_PP_STRINGIZE(_EXT_VER_MONTH) BOOST_PP_STRINGIZE(_EXT_VER_DAY)
 #define _EXT_VER_STR										BOOST_PP_STRINGIZE(_EXT_VER_YEAR) "." BOOST_PP_STRINGIZE(_EXT_VER_MONTH) "." BOOST_PP_STRINGIZE(_EXT_VER_DAY)
