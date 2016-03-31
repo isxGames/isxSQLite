@@ -8,9 +8,9 @@ It is the goal of this project to provide the public with source code examples o
 
 Building isxSQLite.dll
 --------------------
-isxSQLite is designed for no-hassle compiling using Visual Studio 2013.  All required libraries and headers are included here on the repository.
+isxSQLite is designed for no-hassle compiling using Visual Studio 2015.  All required libraries and headers are included here on the repository.
 
-1.  Double-click `isxSQLite.sln` to load the solution in Visual Studio 2013.
+1.  Double-click `isxSQLite.sln` to load the solution in Visual Studio 2015.
 2.  Ensure that the build configuration is set to 'Release' (default)
 3.  Right-click on the isxSQLite project in the Solution Explorer and select "Properties".  Ensure that the "Output Directory" is set to a valid location.  You will most likely want it to be your `/InnerSpace/Extensions/` directory.   (The default is `..\Extensions\`, which assumes that your isxSQLite directory is at `/InnerSpace/isxSQLite`.)
 
@@ -37,4 +37,4 @@ The source code is designed to be the primary documentation for isxSQLite; howev
 
 Copyright
 ---------
-isxSQLite is Copyright 2011-2014 by [Amadeus@isxGames.com](http://www.isxgames.com/).  Permission to use the source code in this project is granted under the Creative Commons Attribution 3.0 Unported (CC BY 3.0) license.  Visit http://creativecommons.org/licenses/by/3.0/ for a summary of what rights are granted under this license.
+isxSQLite is Copyright 2011-2016 by [Amadeus@isxGames.com](http://www.isxgames.com/).  Permission to use the source code in this project is granted under the Creative Commons Attribution 3.0 Unported (CC BY 3.0) license.  Visit http://creativecommons.org/licenses/by/3.0/ for a summary of what rights are granted under this license.
