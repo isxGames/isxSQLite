@@ -11,8 +11,8 @@ Building isxSQLite.dll
 isxSQLite is designed for no-hassle compiling using Visual Studio 2015.  All required libraries and headers are included here on the repository.
 
 1.  Double-click `isxSQLite.sln` to load the solution in Visual Studio 2015.
-2.  Ensure that the build configuration is set to 'Release' (default)
-3.  Right-click on the isxSQLite project in the Solution Explorer and select "Properties".  Ensure that the "Output Directory" is set to a valid location.  You will most likely want it to be your `/InnerSpace/Extensions/` directory.   (The default is `..\Extensions\`, which assumes that your isxSQLite directory is at `/InnerSpace/isxSQLite`.)
+2.  Ensure that the build configuration is set to 'Release', which is the default, or 'Release (x64)', if you prefer a x64 extension. 
+3.  Right-click on the isxSQLite project in the Solution Explorer and select "Properties".  Set the "Output Directory" to a valid location for the current configuration.   For 'release', you would want it to be your /innerspace/Extensions/ISXDK35 folder.   For 'release (x64)', it should be /innerspace/x64/Extensions/ISXDK35.
 
 At this point, simply choose "Build->Build Solution" and the isxSQLite.dll will be generated.
 
@@ -23,7 +23,7 @@ At this point, simply choose "Build->Build Solution" and the isxSQLite.dll will 
 
 Using isxSQLite with InnerSpace
 -------------------------------
-Assuming that isxSQLite.dll is located in your `/innerspace/Extensions` folder, you can load the extension by typing `ext isxSQLite` inside the InnerSpace console.  
+Assuming that isxSQLite.dll is located in the correct Extensions folder (see step 3 above), you can load the extension by typing `ext isxSQLite` inside the InnerSpace console.  
 
 There is an example script located in the `+Scripts+` repository folder.   You may copy this script to your `/innerspace/Scripts` folder and then edit it in order to test isxSQLite functionality.   The script is heavily commented, so users are encouraged to read through it before asking questions.
 

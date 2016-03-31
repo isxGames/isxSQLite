@@ -9,6 +9,8 @@ Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Release - with libisxgames|Win32 = Release - with libisxgames|Win32
 		Release - with libisxgames|x64 = Release - with libisxgames|x64
+		Release (x64)|Win32 = Release (x64)|Win32
+		Release (x64)|x64 = Release (x64)|x64
 		Release|Win32 = Release|Win32
 		Release|x64 = Release|x64
 	EndGlobalSection
@@ -16,6 +18,10 @@ Global
 		{6053FCD4-5A35-49CE-B239-A9F74E25532B}.Release - with libisxgames|Win32.ActiveCfg = Release - with libisxgames|Win32
 		{6053FCD4-5A35-49CE-B239-A9F74E25532B}.Release - with libisxgames|Win32.Build.0 = Release - with libisxgames|Win32
 		{6053FCD4-5A35-49CE-B239-A9F74E25532B}.Release - with libisxgames|x64.ActiveCfg = Release - with libisxgames|Win32
+		{6053FCD4-5A35-49CE-B239-A9F74E25532B}.Release (x64)|Win32.ActiveCfg = Release (x64)|x64
+		{6053FCD4-5A35-49CE-B239-A9F74E25532B}.Release (x64)|Win32.Build.0 = Release (x64)|x64
+		{6053FCD4-5A35-49CE-B239-A9F74E25532B}.Release (x64)|x64.ActiveCfg = Release (x64)|x64
+		{6053FCD4-5A35-49CE-B239-A9F74E25532B}.Release (x64)|x64.Build.0 = Release (x64)|x64
 		{6053FCD4-5A35-49CE-B239-A9F74E25532B}.Release|Win32.ActiveCfg = Release|Win32
 		{6053FCD4-5A35-49CE-B239-A9F74E25532B}.Release|Win32.Build.0 = Release|Win32
 		{6053FCD4-5A35-49CE-B239-A9F74E25532B}.Release|x64.ActiveCfg = Release|Win32
