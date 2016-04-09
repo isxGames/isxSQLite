@@ -1,6 +1,6 @@
 /*
 	isxSQLite is an extension for InnerSpace (http://www.lavishsoft.com).   
-	Copyright 2012 isxGames.com (http://www.isxgames.com)
+	Copyright 2011-2016 isxGames.com (http://www.isxgames.com)
 
 	Permission to use the source code in this file is granted under the 
 	Creative Commons Attribution 3.0 Unported (CC BY 3.0) license.  Visit
@@ -16,8 +16,8 @@
 #include <boost/preprocessor/cat.hpp>
 #include <boost/preprocessor/stringize.hpp>
 #define _EXT_VER_YEAR										2016
-#define _EXT_VER_MONTH										03
-#define _EXT_VER_DAY										30
+#define _EXT_VER_MONTH										04
+#define _EXT_VER_DAY										08
 #define EXTENSION_CLASS										isxGamesExtension
 #define __isxSQLiteVersion									BOOST_PP_STRINGIZE(_EXT_VER_YEAR) BOOST_PP_STRINGIZE(_EXT_VER_MONTH) BOOST_PP_STRINGIZE(_EXT_VER_DAY)
 #define _EXT_VER_STR										BOOST_PP_STRINGIZE(_EXT_VER_YEAR) "." BOOST_PP_STRINGIZE(_EXT_VER_MONTH) "." BOOST_PP_STRINGIZE(_EXT_VER_DAY)

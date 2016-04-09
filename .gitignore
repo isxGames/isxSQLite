@@ -54,3 +54,4 @@ Git-Info.txt
 /.HistoryData
 /.cov
 /PostBuild.bat
+*.VC.db

@@ -1,6 +1,6 @@
 /*
 	isxSQLite is an extension for InnerSpace (http://www.lavishsoft.com).   
-	Copyright 2012 isxGames.com (http://www.isxgames.com)
+	Copyright 2011-2016 isxGames.com (http://www.isxgames.com)
 
 	Permission to use the source code in this file is granted under the 
 	Creative Commons Attribution 3.0 Unported (CC BY 3.0) license.  Visit
