@@ -8,7 +8,8 @@
 #ifndef CppSQLite3_H
 #define CppSQLite3_H
 
-#include "..\isxSQLite.h"
+#include <cstdint>
+#include "sqlite3.h"
 #include <cstdio>
 #include <cstring>
 
@@ -218,6 +219,9 @@ public:
 
     int getIntField(int nField, int nNullValue=0) const;
     int getIntField(const char* szField, int nNullValue=0) const;
+
+    int64_t getInt64Field( int nField, int nNullValue = 0 ) const;
+    int64_t getInt64Field( const char* szField, int nNullValue = 0 ) const;
 
     double getFloatField(int nField, double fNullValue=0.0) const;
     double getFloatField(const char* szField, double fNullValue=0.0) const;

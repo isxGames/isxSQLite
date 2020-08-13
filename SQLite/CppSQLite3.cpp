@@ -833,6 +833,30 @@ int CppSQLite3Table::getIntField(const char* szField, int nNullValue/*=0*/) cons
     }
 }
 
+int64_t CppSQLite3Table::getInt64Field(int nField, int nNullValue/*=0*/) const
+{
+	if (fieldIsNull(nField))
+	{
+		return nNullValue;
+	}
+	else
+	{
+		return _atoi64(fieldValue(nField));
+	}
+}
+
+
+int64_t CppSQLite3Table::getInt64Field(const char* szField, int nNullValue/*=0*/) const
+{
+	if (fieldIsNull(szField))
+	{
+		return nNullValue;
+	}
+	else
+	{
+		return _atoi64(fieldValue(szField));
+	}
+}
 
 double CppSQLite3Table::getFloatField(int nField, double fNullValue/*=0.0*/) const
 {
