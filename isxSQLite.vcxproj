@@ -1,22 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="Release (x64)|Win32">
-      <Configuration>Release (x64)</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release (x64)|x64">
-      <Configuration>Release (x64)</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release - with libisxgames (x64)|Win32">
-      <Configuration>Release - with libisxgames (x64)</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release - with libisxgames (x64)|x64">
-      <Configuration>Release - with libisxgames (x64)</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
     <ProjectConfiguration Include="Release - with libisxgames|x64">
       <Configuration>Release - with libisxgames</Configuration>
       <Platform>x64</Platform>
@@ -50,19 +34,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v140_xp</PlatformToolset>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release (x64)|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v140</PlatformToolset>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release (x64)|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v140_xp</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'" Label="Configuration">
@@ -70,17 +42,7 @@
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames (x64)|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames (x64)|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v140</PlatformToolset>
@@ -94,17 +56,7 @@
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release (x64)|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release (x64)|x64'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\libisxGames\isxGamesCommon.props" Condition="exists('..\libisxGames\isxGamesCommon.props')" />
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames (x64)|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\libisxGames\isxGamesCommon.props" Condition="exists('..\libisxGames\isxGamesCommon.props')" />
   </ImportGroup>
@@ -112,65 +64,35 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\libisxGames\isxGamesCommon.props" Condition="exists('..\libisxGames\isxGamesCommon.props')" />
   </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames (x64)|x64'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\libisxGames\isxGamesCommon.props" Condition="exists('..\libisxGames\isxGamesCommon.props')" />
-  </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">Bin\$(Configuration)\</OutDir>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames (x64)|Win32'">Bin\$(Configuration)\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">Bin\Obj\$(Configuration)\</IntDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames (x64)|Win32'">Bin\Obj\$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">$(SolutionDir)Bin\$(Configuration).$(PlatformShortName)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">$(SolutionDir)Bin\Obj\$(Configuration).$(PlatformShortName)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">false</LinkIncremental>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames (x64)|Win32'">false</LinkIncremental>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|x64'">false</LinkIncremental>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames (x64)|x64'">false</LinkIncremental>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\Extensions\</OutDir>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release (x64)|Win32'">..\Extensions\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Bin\Obj\$(Configuration)\</IntDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release (x64)|Win32'">Bin\Obj\$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)Bin\$(Configuration).$(PlatformShortName)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)Bin\Obj\$(Configuration).$(PlatformShortName)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release (x64)|Win32'">false</LinkIncremental>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release (x64)|x64'">false</LinkIncremental>
-    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)LS2Module\include;$(SolutionDir)ISXDK\35\include;$(IncludePath)</IncludePath>
-    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)LS2Module\include;$(SolutionDir)ISXDK\35\include;$(IncludePath)</IncludePath>
-    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release (x64)|Win32'">$(SolutionDir)LS2Module\include;$(SolutionDir)ISXDK\35\include;$(IncludePath)</IncludePath>
-    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release (x64)|x64'">$(SolutionDir)LS2Module\include;$(SolutionDir)ISXDK\35\include;$(IncludePath)</IncludePath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)ISXDK\35\include;$(IncludePath)</IncludePath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)ISXDK\35\include;$(IncludePath)</IncludePath>
     <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">$(IncludePath)</IncludePath>
-    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames (x64)|Win32'">$(IncludePath)</IncludePath>
     <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|x64'">$(IncludePath)</IncludePath>
-    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames (x64)|x64'">$(IncludePath)</IncludePath>
-    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)LS2Module\lib\vs14;$(SolutionDir)ISXDK\35\lib\vs14;$(LibraryPath)</LibraryPath>
-    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)LS2Module\lib\vs14;$(SolutionDir)ISXDK\35\lib\vs14;$(LibraryPath)</LibraryPath>
-    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release (x64)|Win32'">$(SolutionDir)LS2Module\lib\vs14;$(SolutionDir)ISXDK\35\lib\vs14;$(LibraryPath)</LibraryPath>
-    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release (x64)|x64'">$(SolutionDir)LS2Module\lib\vs14;$(SolutionDir)ISXDK\35\lib64\vs14;$(LibraryPath)</LibraryPath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)ISXDK\35\lib\vs14;$(LibraryPath)</LibraryPath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)ISXDK\35\lib64\vs14;$(LibraryPath)</LibraryPath>
     <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">$(LibraryPath)</LibraryPath>
-    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames (x64)|Win32'">$(LibraryPath)</LibraryPath>
     <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|x64'">$(LibraryPath)</LibraryPath>
-    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames (x64)|x64'">$(LibraryPath)</LibraryPath>
     <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</PostBuildEventUseInBuild>
     <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</PostBuildEventUseInBuild>
-    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release (x64)|Win32'">false</PostBuildEventUseInBuild>
-    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release (x64)|x64'">false</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|x64'">
-    <OutDir>$(SolutionDir)Bin\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)Bin\Obj\$(Configuration)\</IntDir>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames (x64)|x64'">
-    <OutDir>$(SolutionDir)Bin\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)Bin\Obj\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)Bin\$(Configuration).$(PlatformShortName)\</OutDir>
+    <IntDir>$(SolutionDir)Bin\Obj\$(Configuration).$(PlatformShortName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)Bin\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)Bin\Obj\$(Configuration)\</IntDir>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release (x64)|x64'">
-    <OutDir>$(SolutionDir)Bin\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)Bin\Obj\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)Bin\$(Configuration).$(PlatformShortName)\</OutDir>
+    <IntDir>$(SolutionDir)Bin\Obj\$(Configuration).$(PlatformShortName)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">
     <ClCompile>
@@ -215,92 +137,7 @@
       <PreprocessorDefinitions>USE_LIBISXGAMES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames (x64)|Win32'">
-    <ClCompile>
-      <Optimization>MaxSpeed</Optimization>
-      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
-      <OmitFramePointers>true</OmitFramePointers>
-      <WholeProgramOptimization>true</WholeProgramOptimization>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;ISX_EXPORTS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;COMPILING_EXTENSION;USE_LIBISXGAMES;USE_LAVISHSCRIPT3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <StringPooling>true</StringPooling>
-      <MinimalRebuild>false</MinimalRebuild>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-    </ClCompile>
-    <Link>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)isxSQLite.dll</OutputFile>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Windows</SubSystem>
-      <OptimizeReferences>true</OptimizeReferences>
-      <EnableCOMDATFolding>false</EnableCOMDATFolding>
-      <RandomizedBaseAddress>false</RandomizedBaseAddress>
-      <DataExecutionPrevention>
-      </DataExecutionPrevention>
-      <ImportLibrary>$(OutDir)isxSQLite.lib</ImportLibrary>
-      <TargetMachine>MachineX86</TargetMachine>
-      <AdditionalOptions>/ignore:4099  %(AdditionalOptions)</AdditionalOptions>
-      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
-      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
-    </Link>
-    <PostBuildEvent>
-      <Message>Running isxSQLite Post-Build Events</Message>
-      <Command>$(SolutionDir)PostBuild.bat "$(ProjectDir)" "$(TargetDir)" $(TargetName) TRUE $(ISXDKVERSION)</Command>
-    </PostBuildEvent>
-    <ResourceCompile>
-      <PreprocessorDefinitions>USE_LIBISXGAMES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ResourceCompile>
-  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|x64'">
-    <ClCompile>
-      <Optimization>MaxSpeed</Optimization>
-      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
-      <OmitFramePointers>true</OmitFramePointers>
-      <WholeProgramOptimization>true</WholeProgramOptimization>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;ISX_EXPORTS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;COMPILING_EXTENSION;USE_LIBISXGAMES;USE_LAVISHSCRIPT3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <StringPooling>true</StringPooling>
-      <MinimalRebuild>false</MinimalRebuild>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-    </ClCompile>
-    <Link>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)isxSQLite.dll</OutputFile>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Windows</SubSystem>
-      <OptimizeReferences>true</OptimizeReferences>
-      <EnableCOMDATFolding>false</EnableCOMDATFolding>
-      <RandomizedBaseAddress>false</RandomizedBaseAddress>
-      <DataExecutionPrevention>
-      </DataExecutionPrevention>
-      <ImportLibrary>$(OutDir)isxSQLite.lib</ImportLibrary>
-      <AdditionalOptions>/ignore:4099  %(AdditionalOptions)</AdditionalOptions>
-      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
-      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
-    </Link>
-    <PostBuildEvent>
-      <Message>Running isxSQLite Post-Build Events</Message>
-      <Command>$(SolutionDir)PostBuild.bat "$(ProjectDir)" "$(TargetDir)" $(TargetName) TRUE $(ISXDKVERSION)</Command>
-    </PostBuildEvent>
-    <ResourceCompile>
-      <PreprocessorDefinitions>USE_LIBISXGAMES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ResourceCompile>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames (x64)|x64'">
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
@@ -423,87 +260,6 @@
       </Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release (x64)|Win32'">
-    <ClCompile>
-      <Optimization>MaxSpeed</Optimization>
-      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
-      <OmitFramePointers>true</OmitFramePointers>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;ISX_EXPORTS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;COMPILING_EXTENSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <StringPooling>true</StringPooling>
-      <MinimalRebuild>false</MinimalRebuild>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
-      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
-      <WarningLevel>Level3</WarningLevel>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <WholeProgramOptimization>true</WholeProgramOptimization>
-    </ClCompile>
-    <Link>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)isxSQLite.dll</OutputFile>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Windows</SubSystem>
-      <OptimizeReferences>true</OptimizeReferences>
-      <EnableCOMDATFolding>false</EnableCOMDATFolding>
-      <RandomizedBaseAddress>false</RandomizedBaseAddress>
-      <DataExecutionPrevention>
-      </DataExecutionPrevention>
-      <ImportLibrary>$(OutDir)isxSQLite.lib</ImportLibrary>
-      <TargetMachine>MachineX86</TargetMachine>
-      <AdditionalOptions>/ignore:4099  %(AdditionalOptions)</AdditionalOptions>
-      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
-    </Link>
-    <PostBuildEvent>
-      <Message>
-      </Message>
-    </PostBuildEvent>
-  </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release (x64)|x64'">
-    <ClCompile>
-      <Optimization>MaxSpeed</Optimization>
-      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
-      <OmitFramePointers>true</OmitFramePointers>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;ISX_EXPORTS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;COMPILING_EXTENSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <StringPooling>true</StringPooling>
-      <MinimalRebuild>false</MinimalRebuild>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
-      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
-      <WarningLevel>Level3</WarningLevel>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <WholeProgramOptimization>true</WholeProgramOptimization>
-    </ClCompile>
-    <Link>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(OutDir)isxSQLite.dll</OutputFile>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Windows</SubSystem>
-      <OptimizeReferences>true</OptimizeReferences>
-      <EnableCOMDATFolding>false</EnableCOMDATFolding>
-      <RandomizedBaseAddress>false</RandomizedBaseAddress>
-      <DataExecutionPrevention>
-      </DataExecutionPrevention>
-      <ImportLibrary>$(OutDir)isxSQLite.lib</ImportLibrary>
-      <AdditionalOptions>/ignore:4099  %(AdditionalOptions)</AdditionalOptions>
-      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
-    </Link>
-    <PostBuildEvent>
-      <Message>
-      </Message>
-    </PostBuildEvent>
-  </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DataTypes\isxSQLiteType.cpp" />
     <ClCompile Include="DataTypes\SQLiteDBType.cpp" />
@@ -514,30 +270,22 @@
     <ClCompile Include="isxSQLite.cpp" />
     <ClCompile Include="libisxgames\libisxgames.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames (x64)|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames (x64)|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="Services.cpp" />
     <ClCompile Include="Commands.cpp" />
     <ClCompile Include="ExtTopLevelObjects.cpp" />
     <ClCompile Include="SQLite\CppSQLite3.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames (x64)|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames (x64)|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="SQLite\shell.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames (x64)|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames (x64)|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="SQLite\sqlite3.c">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames (x64)|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames (x64)|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="TopLevelObjects.cpp" />
     <ClCompile Include="Pulse.cpp" />
@@ -571,8 +319,6 @@
       <SubType>Designer</SubType>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release (x64)|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release (x64)|x64'">true</ExcludedFromBuild>
     </None>
     <None Include="isxSQLiteChanges.txt" />
     <None Include="README.md" />

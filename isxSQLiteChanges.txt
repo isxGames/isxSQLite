@@ -4,6 +4,7 @@ August 12, 2020
 * Convert project to VS2019 using v140 toolchain
 * Update versioning system to use YYYYMMDD.#### regardless of isxGames build or not.
 * Upgrade SQLite from 3.7.4 to 3.32.3
+* Fix x64 build
 
 April 1, 2012
 [isxSQLite-20120401.0004]
