@@ -1,3 +1,10 @@
+August 12, 2020
+[isxSQLite-20200812.0001]
+* Removed LavishScript 2 datatypes and code. LS2 was cancelled by LavishSoft
+* Convert project to VS2019 using v140 toolchain
+* Update versioning system to use YYYYMMDD.#### regardless of isxGames build or not.
+* Upgrade SQLite from 3.7.4 to 3.32.3
+
 April 1, 2012
 [isxSQLite-20120401.0004]
 * Added new MEMBER to the 'sqlite' datatype:
@@ -13,8 +20,8 @@ February 7, 2011
 CLARIFICATIONS:
 1.  The "LastRow" MEMBER of the sqlitedb datatype is somewhat of a misnomer due to how sqlite queries work.   Basically, what happens is that 
     every time you use the "NextRow" method of the sqlitedb, you're requesting the next returned row of the query.   So, when you get to the 
-	last row and do a 'NextRow', sqlite basically says NOMOREROWS, returns a blank row, and isxSQLite sets the "LastRow" flag.   (This explains
-	why the do/while loop in the tutorial scripts works as it is.)
+    last row and do a 'NextRow', sqlite basically says NOMOREROWS, returns a blank row, and isxSQLite sets the "LastRow" flag.   (This explains
+    why the do/while loop in the tutorial scripts works as it is.)
 2.  "ExecQuery" and "GetTable" statements which do not return any results (or result in an error) finalize automatically.  
 
 
@@ -70,44 +77,44 @@ February 1, 2011
 * Added new METHOD to the 'isxsqlite' datatype:
   1. QuietMode   (toggle)
     ~ When 'QuietMode' is active, no error messages or method results
-	  are displayed in the console.  (However, all messages will still
-	  be available via applicable events.)
+      are displayed in the console.  (However, all messages will still
+      be available via applicable events.)
 * Added new MEMBERS to the 'sqlite' datatype:
   1. OpenDB[<Name>,<path/to/filename>]                   (sqlitedb type)
      OpenDB[<Name>,":Memory:"]                           (sqlitedb type)
     NOTES:
-	   a.  If ":Memory:" is used as the second parameter, then the DB will
-	       only exist in memory.  These databases do not use disk space and
-		   will not be available once the DB is closed or isxSQLite is unloaded.
-	   b.  If the database file does not exist, it will be created.
-	   c.  The 'base path' is your "innerspace/Extensions" directory.  See
-	       scripting examples for more information.)
-	   d.  Database 'Names' must be unique for each isxsqlite session.
-	   e.  When opening a database for which no file already exists, the 
-	       database will be created with the following defaults:
+       a.  If ":Memory:" is used as the second parameter, then the DB will
+           only exist in memory.  These databases do not use disk space and
+           will not be available once the DB is closed or isxSQLite is unloaded.
+       b.  If the database file does not exist, it will be created.
+       c.  The 'base path' is your "innerspace/Extensions" directory.  See
+           scripting examples for more information.)
+       d.  Database 'Names' must be unique for each isxsqlite session.
+       e.  When opening a database for which no file already exists, the 
+           database will be created with the following defaults:
            "PRAGMA encoding = 'UTF-8';"       "PRAGMA auto_vacuum = 1;"
            "PRAGMA cache_size = 2048;"        "PRAGMA page_size = 4096;"
            "PRAGMA synchronous = NORMAL;"     "PRAGMA journal_mode = OFF;"
            "PRAGMA temp_store = MEMORY;"      "PRAGMA synchronous = OFF;"
-		   (Obviously, you can override any of these settings, or add your
-		   own, by using the 'ExecDML' METHOD of the created 'sqlitedb'.)
+           (Obviously, you can override any of these settings, or add your
+           own, by using the 'ExecDML' METHOD of the created 'sqlitedb'.)
   2. GetQueryByID[<int>]                                 (sqlitequery type)
 * Added new METHODS to the 'sqlitedb' datatype:
   1. Set[<sqlitedb>|<sqlitedb.ID>]
   2. Close
   3. ExecDML[<DML String>]          (Execute "Data Manipulation Language")
     ~ See http://en.wikipedia.org/wiki/Data_Manipulation_Language (see also
-	  sample isxSQLite scripts for usage examples.)
-	~ NOTE:  This method is used when you do not need a return value after
-	         executing the desired DML statement.   You may assume that the
-			 execution was successful unless an isxSQLite_onError event is
-			 fired (which will also result in an error message in the console
-			 if 'QuietMode' is not active.)		
+      sample isxSQLite scripts for usage examples.)
+    ~ NOTE:  This method is used when you do not need a return value after
+             executing the desired DML statement.   You may assume that the
+             execution was successful unless an isxSQLite_onError event is
+             fired (which will also result in an error message in the console
+             if 'QuietMode' is not active.)		
   4. ExecDMLTransaction[<index:string>]
     ~ This method is used if you have a large number of DML statements you
-	  want to execute at once.  Executing large numbers of statements at once
-	  via a transaction will result in much better performance and efficiency
-	  than doing them individually via 'ExecDML'.
+      want to execute at once.  Executing large numbers of statements at once
+      via a transaction will result in much better performance and efficiency
+      than doing them individually via 'ExecDML'.
 * Added new MEMBERS to the 'sqlitedb' datatype:
   1. ExecQuery[<DML String>]                             (sqlitequery type)
   2. TableExists[<TableName>]                            (bool type)          
@@ -124,16 +131,16 @@ February 1, 2011
   6. GetFieldDeclType[<Field#>]                          (string type)
   7. GetFieldType[<Field#>]                              (int type)
   8. GetFieldValue[<Field#>|<FieldName>, <TYPE>]         (varies) 
-	 (NOTE:  Use of this member without a 'TYPE' will return the 
-	         value as a string type.)
+     (NOTE:  Use of this member without a 'TYPE' will return the 
+             value as a string type.)
   9. FieldIsNULL[<Field#>|<FieldName>]                   (bool type)
   10.LastRow                                             (bool type
   'TYPE' can be one of these values:  
      a. 'string'      [returns string datatype object]
-	 b. 'int'         [returns int datatype object]
-	 c. 'double'      [returns double datatype object]
-	 d. 'float'       [returns double datatype object]   (this is identical to 'double')
-	 e. 'int64'       [returns int64 datatype object]
+     b. 'int'         [returns int datatype object]
+     c. 'double'      [returns double datatype object]
+     d. 'float'       [returns double datatype object]   (this is identical to 'double')
+     e. 'int64'       [returns int64 datatype object]
 * Added new METHODS to the 'sqlitequery' datatype:
   1. NextRow       (moves query to next row in the return set)
   2. Reset         (returns to first row in the set)
@@ -146,15 +153,15 @@ February 1, 2011
   3. NumFields                                           (int type)
   4. GetFieldName[<Field#>]                              (string type)
   5. GetFieldValue[<Field#>|<FieldName>, <TYPE>]         (varies) 
-	 (NOTE:  Use of this member without a 'TYPE' will return the 
-	         value as a string type.)
+     (NOTE:  Use of this member without a 'TYPE' will return the 
+             value as a string type.)
   6. FieldIsNULL[<Field#>|<FieldName>]                   (bool type)
   'TYPE' can be one of these values:  
      a. 'string'      [returns string datatype object]
-	 b. 'int'         [returns int datatype object]
-	 c. 'double'      [returns double datatype object]
-	 d. 'float'       [returns double datatype object]   (this is identical to 'double')
-	 e. 'int64'       [returns int64 datatype object]
+     b. 'int'         [returns int datatype object]
+     c. 'double'      [returns double datatype object]
+     d. 'float'       [returns double datatype object]   (this is identical to 'double')
+     e. 'int64'       [returns int64 datatype object]
 * Added new METHODS to the 'sqlitequery' datatype:
   1. SetRow[<Row#>]       
   2. Finalize      (Finalizing a table is not required; however, leaving tables un-finalized,
@@ -163,10 +170,10 @@ February 1, 2011
 * Added new EVENTS
   1. isxSQLite_onErrorMsg(int ErrorNum, string ErrorMsg)
      (NOTE:  Not all errors have a unique ErrorNum.  In these cases, it will be
-	         -1.   However, ALL errors will have a unique "ErrorMsg".)
+             -1.   However, ALL errors will have a unique "ErrorMsg".)
   2. isxSQLite_onStatusMsg(string StatusMsg)
      ~ Any 'spew' from isxSQLite which is not an error, will be echoed through
-	   this event (i.e., results from SQLiteDB:Close)
+       this event (i.e., results from SQLiteDB:Close)
 * Added new COMMAND: "GetURL"
   ~ Syntax:  GetURL "http://address/to/file"
              GetURL "https://address/to/file"
@@ -180,12 +187,12 @@ February 1, 2011
     6.  The response you receive from this command will be accessible via the "isxGames_onHTTPResponse" event.
 * Added new EVENT
   1. isxGames_onHTTPResponse(int Size, string URL, string IPAddress, int ResponseCode, float TransferTime, string ResponseText, string ParsedBody)
-		 ~ This event only fires for responses that occur due to the "GetURL" command being utilized
-		 ~ "Size" is in bytes
-		 ~ "URL" should match the URL issued with the "GetURL" command (unless modified by the server)
-		 ~ "ResponseText" is the entire response text unparsed (ie, including all html/xml tags)
-		 ~ "ParsedBody" will return the plain text of the <body> section of an html document.  However, at this time it only works for simple documents
-		   with only plain text between the <body></body> tags.  I will be improving upon this in the future.
+         ~ This event only fires for responses that occur due to the "GetURL" command being utilized
+         ~ "Size" is in bytes
+         ~ "URL" should match the URL issued with the "GetURL" command (unless modified by the server)
+         ~ "ResponseText" is the entire response text unparsed (ie, including all html/xml tags)
+         ~ "ParsedBody" will return the plain text of the <body> section of an html document.  However, at this time it only works for simple documents
+           with only plain text between the <body></body> tags.  I will be improving upon this in the future.
 * You can test the new "GetURL" command with the new event with either of these URLs:
   ~ https://www.isxgames.com/libcurltest.html
   ~ http://www.isxgames.com/libcurltest.html

@@ -13,9 +13,6 @@
 //--------------------------------
 #include <fstream>
 #include "isxSQLite.h"
-#ifdef USE_LAVISHSCRIPT2
-#include <ls2module.h>
-#endif
 
 #pragma region SQLite Related
 CppSQLite3DB* OpenDatabase(std::string Name, std::string FileName, LavishScript2::LS2Exception **ppException)
@@ -53,17 +50,6 @@ CppSQLite3DB* OpenDatabase(std::string Name, std::string FileName, LavishScript2
 		std::string ErrCode = format("%d",e.errorCode());
 		std::string s = format("OpenDB:: Error Opening %s (Error: %s)",FullPathAndFileName,e.errorMessage());
 
-		#ifdef USE_LAVISHSCRIPT2
-		if (ppException)
-		{
-			// need to convert to UTF-16 for LS2 exception
-			LavishScript2::LS2SmartRef<LavishScript2::ILS2String> pString;
-			LavishScript2::LS2SmartRef<LavishScript2::LS2Exception> pSubException;
-			LavishScript2::ILS2StandardEnvironment::s_pInstance->NewString(CP_ACP,s.c_str(),pString,pSubException);
-			*ppException = new LavishScript2::LS2Exception(pString->c_str());
-		}
-		#endif
-
 		if (!gQuietMode)
 			printf(s.c_str());
 				
@@ -95,17 +81,6 @@ CppSQLite3DB* OpenDatabase(std::string Name, std::string FileName, LavishScript2
 			#pragma region isxSQLite_onErrorMsg
 			std::string ErrCode = format("%d",e.errorCode());
 			std::string s = format("OpenDatabase:: Error setting defaults on new database file (Error: \"%s\")",e.errorMessage());
-
-			#ifdef USE_LAVISHSCRIPT2
-			if (ppException)
-			{
-				// need to convert to UTF-16 for LS2 exception
-				LavishScript2::LS2SmartRef<LavishScript2::ILS2String> pString;
-				LavishScript2::LS2SmartRef<LavishScript2::LS2Exception> pSubException;
-				LavishScript2::ILS2StandardEnvironment::s_pInstance->NewString(CP_ACP,s.c_str(),pString,pSubException);
-				*ppException = new LavishScript2::LS2StringException(pString->c_str());
-			}
-			#endif
 
 			if (!gQuietMode)
 				printf(s.c_str());
@@ -181,17 +156,6 @@ int OpenTable(CppSQLite3DB *pDB, const char *name, LavishScript2::LS2Exception *
 		else
 			s = format("SQLiteDBType.GetTable:: Error getting table using custom DML Statment '%s'.  (Error: %d:%s)",name, e.errorCode(),e.errorMessage());
 
-		#ifdef USE_LAVISHSCRIPT2
-		if (ppException)
-		{
-			// need to convert to UTF-16 for LS2 exception
-			LavishScript2::LS2SmartRef<LavishScript2::ILS2String> pString;
-			LavishScript2::LS2SmartRef<LavishScript2::LS2Exception> pSubException;
-			LavishScript2::ILS2StandardEnvironment::s_pInstance->NewString(CP_ACP,s.c_str(),pString,pSubException);
-			*ppException = new LavishScript2::LS2StringException(pString->c_str());
-		}
-		#endif
-
 		if (!gQuietMode)
 			printf(s.c_str());
 				
@@ -223,16 +187,6 @@ int ExecQuery(CppSQLite3DB *pDB, const char *sql, LavishScript2::LS2Exception **
 		#pragma region isxSQLite_onErrorMsg
 		std::string ErrCode = format("%d",e.errorCode());
 		std::string s = format("SQLiteDBType.ExecQuery:: Error executing DML. (Error: %d:%s)",e.errorCode(),e.errorMessage());
-		#ifdef USE_LAVISHSCRIPT2
-		if (ppException)
-		{
-			// need to convert to UTF-16 for LS2 exception
-			LavishScript2::LS2SmartRef<LavishScript2::ILS2String> pString;
-			LavishScript2::LS2SmartRef<LavishScript2::LS2Exception> pSubException;
-			LavishScript2::ILS2StandardEnvironment::s_pInstance->NewString(CP_ACP,s.c_str(),pString,pSubException);
-			*ppException = new LavishScript2::LS2StringException(pString->c_str());
-		}
-		#endif
 		if (!gQuietMode)
 			printf(s.c_str());
 				
@@ -281,16 +235,6 @@ bool CloseDatabase(const char *name, CppSQLite3DB* pDB, LavishScript2::LS2Except
 		std::string ErrCode = format("%d",e.errorCode());
 		std::string s = format("SQLiteDB.Close:: Error Closing '%s' (Error: %s)",name,e.errorMessage());
 
-		#ifdef USE_LAVISHSCRIPT2
-		if (ppException)
-		{
-			// need to convert to UTF-16 for LS2 exception
-			LavishScript2::LS2SmartRef<LavishScript2::ILS2String> pString;
-			LavishScript2::LS2SmartRef<LavishScript2::LS2Exception> pSubException;
-			LavishScript2::ILS2StandardEnvironment::s_pInstance->NewString(CP_ACP,s.c_str(),pString,pSubException);
-			*ppException = new LavishScript2::LS2StringException(pString->c_str());
-		}
-		#endif
 		if (!gQuietMode)
 			printf(s.c_str());
 				
@@ -329,16 +273,6 @@ bool ExecDML(CppSQLite3DB *pDB, const char *dml, LavishScript2::LS2Exception **p
 		#pragma region isxSQLite_onErrorMsg
 		std::string ErrCode = format("%d",e.errorCode());
 		std::string s = format("SQLiteDB.ExecDML:: Error executing SQLite DML statement \"%s\". (Error: %d:%s)", dml, e.errorCode(),e.errorMessage());
-		#ifdef USE_LAVISHSCRIPT2
-		if (ppException)
-		{
-			// need to convert to UTF-16 for LS2 exception
-			LavishScript2::LS2SmartRef<LavishScript2::ILS2String> pString;
-			LavishScript2::LS2SmartRef<LavishScript2::LS2Exception> pSubException;
-			LavishScript2::ILS2StandardEnvironment::s_pInstance->NewString(CP_ACP,s.c_str(),pString,pSubException);
-			*ppException = new LavishScript2::LS2StringException(pString->c_str());
-		}
-		#endif
 		if (!gQuietMode)
 			printf(s.c_str());
 				
@@ -353,156 +287,6 @@ bool ExecDML(CppSQLite3DB *pDB, const char *dml, LavishScript2::LS2Exception **p
 
 	return true;
 }
-#ifdef USE_LAVISHSCRIPT2
-bool ExecDMLTransaction(CppSQLite3DB *pDB, LavishScript2::ILS2Array *pArray, LavishScript2::LS2Exception **ppException)
-{
-	try 
-	{
-		pDB->execDML( "BEGIN TRANSACTION;" );
-	}
-	catch (CppSQLite3Exception& e)
-	{
-		#pragma region isxSQLite_onErrorMsg
-		std::string ErrCode = format("%d",e.errorCode());
-		std::string s = format("SQLiteDB:ExecDMLTransaction:: Error beginning SQLite Transaction. (Error: %d:%s)",e.errorCode(),e.errorMessage());
-		#ifdef USE_LAVISHSCRIPT2
-		if (ppException)
-		{
-			// need to convert to UTF-16 for LS2 exception
-			LavishScript2::LS2SmartRef<LavishScript2::ILS2String> pString;
-			LavishScript2::LS2SmartRef<LavishScript2::LS2Exception> pSubException;
-			LavishScript2::ILS2StandardEnvironment::s_pInstance->NewString(CP_ACP,s.c_str(),pString,pSubException);
-			*ppException = new LavishScript2::LS2StringException(pString->c_str());
-		}
-		#endif
-
-		if (!gQuietMode)
-			printf(s.c_str());
-				
-		char *argv[] = {
-			(char*)ErrCode.c_str(),
-			(char*)s.c_str()
-		};
-		pISInterface->ExecuteEvent(isxSQLite_onErrorMsg,0,2,argv,0);
-		#pragma endregion
-		return false;
-	}
-	
-	for (unsigned int i = 0; i <= pArray->GetSize(); i++)
-	{
-		LavishScript2::LS2SmartRef<LavishScript2::LS2CodeBoxValue_String> pStringVal;
-		if (!pArray->GetAt<LavishScript2::LS2CodeBoxValue_String>(i,LavishScript2::VT_String,pStringVal,ppException))
-		{
-			return false;
-		}
-		LavishScript2::LS2SmartRef<LavishScript2::ILS2String8> pDMLString;
-		if (!pStringVal->m_pValue->GetLS2String8(pDMLString,ppException))
-		{
-			return false;
-		}
-					
-		try 
-		{
-			pDB->execDML( pDMLString->c_str() );
-		}
-		catch (CppSQLite3Exception& e)
-		{
-			#pragma region isxSQLite_onErrorMsg
-			std::string ErrCode = format("%d",e.errorCode());
-			std::string s = format("SQLiteDB:ExecDMLTransaction:: Error executing DML statement \"%s\". (Error: %d:%s)",pDMLString->c_str(), e.errorCode(),e.errorMessage());
-
-			#ifdef USE_LAVISHSCRIPT2
-			if (ppException)
-			{
-				// need to convert to UTF-16 for LS2 exception
-				LavishScript2::LS2SmartRef<LavishScript2::ILS2String> pString;
-				LavishScript2::LS2SmartRef<LavishScript2::LS2Exception> pSubException;
-				LavishScript2::ILS2StandardEnvironment::s_pInstance->NewString(CP_ACP,s.c_str(),pString,pSubException);
-				*ppException = new LavishScript2::LS2StringException(pString->c_str());
-			}
-			#endif
-
-			if (!gQuietMode)
-				printf(s.c_str());
-				
-			char *argv[] = {
-				(char*)ErrCode.c_str(),
-				(char*)s.c_str()
-			};
-			pISInterface->ExecuteEvent(isxSQLite_onErrorMsg,0,2,argv,0);
-			#pragma endregion
-			try 
-			{
-				pDB->execDML( "ROLLBACK;" );
-			}
-			catch (CppSQLite3Exception& e)
-			{
-				#pragma region isxSQLite_onErrorMsg
-				std::string ErrCode = format("%d",e.errorCode());
-				std::string s = format("SQLiteDB.ExecDMLTransaction:: Error during SQLite Transaction Rollback. (Error: %d:%s)",e.errorCode(),e.errorMessage());
-
-				#ifdef USE_LAVISHSCRIPT2
-				if (ppException)
-				{
-					// need to convert to UTF-16 for LS2 exception
-					LavishScript2::LS2SmartRef<LavishScript2::ILS2String> pString;
-					LavishScript2::LS2SmartRef<LavishScript2::LS2Exception> pSubException;
-					LavishScript2::ILS2StandardEnvironment::s_pInstance->NewString(CP_ACP,s.c_str(),pString,pSubException);
-					*ppException = new LavishScript2::LS2StringException(pString->c_str());
-				}
-				#endif
-
-				if (!gQuietMode)
-					printf(s.c_str());
-				
-				char *argv[] = {
-					(char*)ErrCode.c_str(),
-					(char*)s.c_str()
-				};
-				pISInterface->ExecuteEvent(isxSQLite_onErrorMsg,0,2,argv,0);
-				#pragma endregion
-				return false;
-			}
-
-			return false;
-		}
-	}
-	try 
-	{
-		pDB->execDML( "END TRANSACTION;" );
-	}
-	catch (CppSQLite3Exception& e)
-	{
-		#pragma region isxSQLite_onErrorMsg
-		std::string ErrCode = format("%d",e.errorCode());
-		std::string s = format("SQLiteDB.ExecDMLTransaction:: Error ending SQLite Transaction. (Error: %d:%s)",e.errorCode(),e.errorMessage());
-
-		#ifdef USE_LAVISHSCRIPT2
-		if (ppException)
-		{
-			// need to convert to UTF-16 for LS2 exception
-			LavishScript2::LS2SmartRef<LavishScript2::ILS2String> pString;
-			LavishScript2::LS2SmartRef<LavishScript2::LS2Exception> pSubException;
-			LavishScript2::ILS2StandardEnvironment::s_pInstance->NewString(CP_ACP,s.c_str(),pString,pSubException);
-			*ppException = new LavishScript2::LS2StringException(pString->c_str());
-		}
-		#endif
-
-		if (!gQuietMode)
-			printf(s.c_str());
-				
-		char *argv[] = {
-			(char*)ErrCode.c_str(),
-			(char*)s.c_str()
-		};
-		pISInterface->ExecuteEvent(isxSQLite_onErrorMsg,0,2,argv,0);
-		#pragma endregion
-		return false;
-	}
-
-	return true;	
-}
-#endif // USE_LAVISHSCRIPT2
 #pragma endregion
 
 #pragma region isxSQLite related

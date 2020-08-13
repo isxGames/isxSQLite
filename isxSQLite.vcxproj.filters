@@ -69,9 +69,6 @@
     <Filter Include="Source Files\DataTypes %28LavishScript 1%29\isxSQLiteType">
       <UniqueIdentifier>{b44ac73a-d71c-4b1a-9436-493443d25b24}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\DataTypes %28LavishScript 2%29">
-      <UniqueIdentifier>{31b7dcc0-1387-4482-8691-fcd96e714640}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\DataTypes %28LavishScript 1%29">
       <UniqueIdentifier>{59380729-f8b5-4764-b303-7900f2c07988}</UniqueIdentifier>
     </Filter>
@@ -80,9 +77,6 @@
     </Filter>
     <Filter Include="Header Files\Top Level Objects %28LavishScript 1%29">
       <UniqueIdentifier>{a0d7125a-66c7-4d10-b091-24c186cc2ce6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\DataTypes %28LavishScript 2%29">
-      <UniqueIdentifier>{5bfa4f25-2d8e-41db-ade6-a40dcaf4e06f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -136,18 +130,6 @@
     </ClCompile>
     <ClCompile Include="Pulse.cpp">
       <Filter>Source Files\Utilities\Pulse</Filter>
-    </ClCompile>
-    <ClCompile Include="LavishScript 2\LS2_SQLiteDBType.cpp">
-      <Filter>Source Files\DataTypes %28LavishScript 2%29</Filter>
-    </ClCompile>
-    <ClCompile Include="LavishScript 2\LS2_SQLiteTableType.cpp">
-      <Filter>Source Files\DataTypes %28LavishScript 2%29</Filter>
-    </ClCompile>
-    <ClCompile Include="LavishScript 2\LS2_SQLiteQueryType.cpp">
-      <Filter>Source Files\DataTypes %28LavishScript 2%29</Filter>
-    </ClCompile>
-    <ClCompile Include="LavishScript 2\LS2_SQLiteDataTypeEnum.cpp">
-      <Filter>Source Files\DataTypes %28LavishScript 2%29</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -213,9 +195,6 @@
     </ClInclude>
     <ClInclude Include="libisxgames\libisxgames.h">
       <Filter>Source Files\libisxgames</Filter>
-    </ClInclude>
-    <ClInclude Include="LavishScript 2\LS2_sqllite.h">
-      <Filter>Header Files\DataTypes %28LavishScript 2%29</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

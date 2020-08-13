@@ -12,21 +12,25 @@
 ////////////////////////////
 // VERSION
 #define EXTENSION_NAME										"isxSQLite"
+
+#define _EXT_VER_YEAR										2020
+#define _EXT_VER_MONTH										08
+#define _EXT_VER_DAY										12
+
 #ifdef USE_LIBISXGAMES
 #include <boost/preprocessor/cat.hpp>
 #include <boost/preprocessor/stringize.hpp>
-#define _EXT_VER_YEAR										2016
-#define _EXT_VER_MONTH										04
-#define _EXT_VER_DAY										08
 #define EXTENSION_CLASS										isxGamesExtension
 #define __isxSQLiteVersion									BOOST_PP_STRINGIZE(_EXT_VER_YEAR) BOOST_PP_STRINGIZE(_EXT_VER_MONTH) BOOST_PP_STRINGIZE(_EXT_VER_DAY)
 #define _EXT_VER_STR										BOOST_PP_STRINGIZE(_EXT_VER_YEAR) "." BOOST_PP_STRINGIZE(_EXT_VER_MONTH) "." BOOST_PP_STRINGIZE(_EXT_VER_DAY)
 #else
-#define _EXT_VER_YEAR										9999
-#define _EXT_VER_MONTH										12
-#define _EXT_VER_DAY										31
-#define __isxSQLiteVersion									"99991231"
-#define _EXT_VER_STR										"99991231"
+#define PPCAT_NX(A, B) A ## B
+#define PPCAT(A, B) PPCAT_NX(A, B)
+#define STRINGIZE_NX(A) #A
+#define STRINGIZE(A) STRINGIZE_NX(A)
+
+#define __isxSQLiteVersion									STRINGIZE(PPCAT(PPCAT(_EXT_VER_YEAR, _EXT_VER_MONTH),_EXT_VER_DAY))
+#define _EXT_VER_STR										__isxSQLiteVersion
 #endif
 //
 ///////////////////////////
@@ -37,13 +41,6 @@
 #if TESTCALLS
 #define TESTCALLS_TOFILE		1						// Default: 1 - Spew TESTCALLS output to file rather than the debugger
 #endif
-//
-////////////////////////////
-
-////////////////////////////
-// To compile with Lavishscript2 support
-//
-//#define USE_LAVISHSCRIPT2
 //
 ////////////////////////////
 

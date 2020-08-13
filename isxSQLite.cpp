@@ -26,10 +26,6 @@
 #else
 	#pragma comment(lib,"isxdk")
 #endif
-#ifdef USE_LAVISHSCRIPT2
-	#pragma comment(lib, "ls2module.lib")
-	#include "LavishScript 2\LS2_sqllite.h"
-#endif
 
 ISXPreSetup("isxSQLite",isxGamesExtension);
 
@@ -121,21 +117,6 @@ bool isxGamesExtension::Initialize(ISInterface *p_ISInterface)
 
 	pExtension->RegisterExtDataTypes();
 	pExtension->RegisterExtTopLevelObjects();
-
-	#ifdef USE_LAVISHSCRIPT2	
-	{
-		LavishScript2::ILS2StandardEnvironment *pLS2Environment = 0;
-		if (pISInterface->GetLavishScript2Environment(LS2MODULE_API_VERSION,(void**)&pLS2Environment))
-		{
-			LavishScript2::ILS2Module::AttachEnvironment(pLS2Environment);
-
-			RegisterSQLiteDataTypeEnum();
-			RegisterSQLiteDBType();
-			RegisterSQLiteQueryType();
-			RegisterSQLiteTableType();
-		}
-	}
-	#endif
 
 	// Register persistent class for .NET
 	isxSQLiteClass = pISInterface->RegisterPersistentClass("isxSQLite");
@@ -231,13 +212,6 @@ void isxGamesExtension::Shutdown()
 		}
 		UnRegisterExtTopLevelObjects();
 		UnRegisterExtDataTypes();
-
-		#ifdef USE_LAVISHSCRIPT2
-		UnregisterSQLiteDataTypeEnum();
-		UnregisterSQLiteDBType();
-		UnregisterSQLiteQueryType();
-		UnregisterSQLiteTableType();
-		#endif
 	}
 
 
