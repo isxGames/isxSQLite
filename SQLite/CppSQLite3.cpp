@@ -657,6 +657,60 @@ void CppSQLite3Query::nextRow()
     }
 }
 
+// isxGames addition
+void CppSQLite3Query::Reset()
+{
+    int nRet = sqlite3_reset(mpVM);			// reset back to original state
+
+    if (nRet != SQLITE_OK)
+    {
+        const char* szError = sqlite3_errmsg(mpDB);
+        throw CppSQLite3Exception(nRet, (char*)szError, DONT_DELETE_MSG);
+        return;
+    }
+    nextRow();								// have to do one "step" after reset ..since we know it was valid before, no reason to worry about it here.
+    mbEof = false;
+    return;
+}
+
+// isxGames addition
+int CppSQLite3Query::NumRows()
+{
+    checkVM();
+    if (mbEof)
+        return 0;
+
+    int Result = 0;
+    int Count = 0;
+
+    do
+    {
+        Result = sqlite3_step(mpVM);
+
+        if (Result != SQLITE_ROW && Result != SQLITE_DONE)
+        {
+            Result = sqlite3_finalize(mpVM);
+            mpVM = nullptr;
+            const char* szError = sqlite3_errmsg(mpDB);
+            throw CppSQLite3Exception(Result, (char*)szError, DONT_DELETE_MSG);
+            return Count;
+        }
+        Count++;
+    }
+    while (Result != SQLITE_DONE);
+
+
+    int nRet = sqlite3_reset(mpVM);			// reset back to original state
+    if (nRet != SQLITE_OK)
+    {
+        const char* szError = sqlite3_errmsg(mpDB);
+        throw CppSQLite3Exception(nRet, (char*)szError, DONT_DELETE_MSG);
+        return Count;
+    }
+    nextRow();								// have to do one "step" after reset ..since we know it was valid before, no reason to worry about it here.
+    
+    return Count;
+}
 
 void CppSQLite3Query::finalize()
 {
@@ -835,27 +889,27 @@ int CppSQLite3Table::getIntField(const char* szField, int nNullValue/*=0*/) cons
 
 int64_t CppSQLite3Table::getInt64Field(int nField, int nNullValue/*=0*/) const
 {
-	if (fieldIsNull(nField))
-	{
-		return nNullValue;
-	}
-	else
-	{
-		return _atoi64(fieldValue(nField));
-	}
+    if (fieldIsNull(nField))
+    {
+        return nNullValue;
+    }
+    else
+    {
+        return _atoi64(fieldValue(nField));
+    }
 }
 
 
 int64_t CppSQLite3Table::getInt64Field(const char* szField, int nNullValue/*=0*/) const
 {
-	if (fieldIsNull(szField))
-	{
-		return nNullValue;
-	}
-	else
-	{
-		return _atoi64(fieldValue(szField));
-	}
+    if (fieldIsNull(szField))
+    {
+        return nNullValue;
+    }
+    else
+    {
+        return _atoi64(fieldValue(szField));
+    }
 }
 
 double CppSQLite3Table::getFloatField(int nField, double fNullValue/*=0.0*/) const
@@ -1214,6 +1268,7 @@ CppSQLite3DB::CppSQLite3DB()
 {
     mpDB = 0;
     mnBusyTimeoutMs = 60000; // 60 seconds
+    Opened = false;
 }
 
 
@@ -1221,6 +1276,7 @@ CppSQLite3DB::CppSQLite3DB(const CppSQLite3DB& db)
 {
     mpDB = db.mpDB;
     mnBusyTimeoutMs = 60000; // 60 seconds
+    Opened = false;
 }
 
 
@@ -1237,8 +1293,8 @@ CppSQLite3DB& CppSQLite3DB::operator=(const CppSQLite3DB& db)
     return *this;
 }
 
-
-void CppSQLite3DB::open(const char* szFile)
+// isxGames modified - retval, set Opened member
+bool CppSQLite3DB::open(const char* szFile)
 {
     int nRet = sqlite3_open(szFile, &mpDB);
 
@@ -1246,9 +1302,12 @@ void CppSQLite3DB::open(const char* szFile)
     {
         const char* szError = sqlite3_errmsg(mpDB);
         throw CppSQLite3Exception(nRet, (char*)szError, DONT_DELETE_MSG);
+        return false;
     }
 
     setBusyTimeout(mnBusyTimeoutMs);
+    Opened = true;
+    return true;
 }
 
 

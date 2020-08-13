@@ -182,6 +182,10 @@ public:
 
     void finalize();
 
+    int NumRows();
+    
+    void Reset();
+
 private:
 
     void checkVM() const;
@@ -294,7 +298,7 @@ public:
 
     virtual ~CppSQLite3DB();
 
-    void open(const char* szFile);
+    bool open(const char* szFile);
 
     void close();
 
@@ -318,6 +322,8 @@ public:
 
     static const char* SQLiteVersion() { return SQLITE_VERSION; }
 
+    bool IsOpen() { return Opened;	}
+
 private:
 
     CppSQLite3DB(const CppSQLite3DB& db);
@@ -329,6 +335,7 @@ private:
 
     sqlite3* mpDB;
     int mnBusyTimeoutMs;
+    bool Opened;
 };
 
 #endif
