@@ -100,20 +100,20 @@ bool IsConsoleOpen()
 ////////////
 void DebugSpew(const PCHAR szFormat, ...)
 {
-    va_list vaList;
+	va_list vaList;
 	va_start( vaList, szFormat );
 	std::string output = format_arg_list(szFormat,vaList);
 
 	OutputDebugString("[isxSQLite]");
-    OutputDebugString(output.c_str());
-    OutputDebugString("\n");
+	OutputDebugString(output.c_str());
+	OutputDebugString("\n");
 
 	return;
 }
 
 void DebugSpew(int PipeToLoc, const PCHAR szFormat,...)
 {
-    va_list vaList;
+	va_list vaList;
 	va_start( vaList, szFormat );
 	std::string output = format_arg_list(szFormat,vaList);
  
@@ -295,7 +295,7 @@ std::string VersionInfo::GetProductName()
 	unsigned len = 0;
 	std::string ProductName = m_sSearch + "ProductName";
 	VerQueryValue((LPVOID)m_pVerData, (LPSTR)(ProductName.c_str()), (VOID FAR* FAR*)&data, (UINT FAR*)&len);
-    
+	
 	return (char*)data;
 }
 
@@ -373,20 +373,20 @@ std::string VersionInfo::GetProductVersion()
 	unsigned len = 0;
 	std::string ProductVersion = m_sSearch + "ProductVersion";
 	VerQueryValue((LPVOID)m_pVerData, (LPSTR)(ProductVersion.c_str()), (VOID FAR* FAR*)&data, (UINT FAR*)&len);
-    
+	
 	return format("%s.%s",__isxSQLiteVersion, ConvertProductVersionToExtensionVersion((char*)data).c_str()).c_str();
 }
 
 std::string VersionInfo::GetProductYear()
 {
    if (!m_bOk)
-      return NoVerDataString();
+	  return NoVerDataString();
    
    LPBYTE data = NULL;
    unsigned len = 0;
    std::string ProductVersion = m_sSearch + "ProductVersion";
    VerQueryValue((LPVOID)m_pVerData, (LPSTR)(ProductVersion.c_str()), (VOID FAR* FAR*)&data, (UINT FAR*)&len);
-    
+	
 
    return ConvertProductVersionToYear((char*)data).c_str();
 }
@@ -395,13 +395,13 @@ std::string VersionInfo::GetProductYear()
 std::string VersionInfo::GetCompanyName()
 {   
    if (!m_bOk)
-      return NoVerDataString();
+	  return NoVerDataString();
    
    LPBYTE data = NULL;
    unsigned len = 0;
    std::string CompanyName = m_sSearch + "CompanyName";
    VerQueryValue((LPVOID)m_pVerData, (LPSTR)(CompanyName.c_str()), (VOID FAR* FAR*)&data, (UINT FAR*)&len);
-    
+	
    return (char*)data;
 }
 
@@ -409,13 +409,13 @@ std::string VersionInfo::GetCompanyName()
 std::string VersionInfo::GetCopyright()
 {   
    if (!m_bOk)
-      return NoVerDataString();
+	  return NoVerDataString();
    
    LPBYTE data = NULL;
    unsigned len = 0;
    std::string LegalCopyright = m_sSearch + "LegalCopyright";
    VerQueryValue((LPVOID)m_pVerData, (LPSTR)(LegalCopyright.c_str()), (VOID FAR* FAR*)&data, (UINT FAR*)&len);
-    
+	
    return (char*)data;
 }
 
@@ -423,13 +423,13 @@ std::string VersionInfo::GetCopyright()
 std::string VersionInfo::GetTrademark()
 {   
    if (!m_bOk)
-      return NoVerDataString();
+	  return NoVerDataString();
    
    LPBYTE data = NULL;
    unsigned len = 0;
    std::string LegalTrademarks = m_sSearch + "LegalTrademarks";
    VerQueryValue((LPVOID)m_pVerData, (LPSTR)(LegalTrademarks.c_str()), (VOID FAR* FAR*)&data, (UINT FAR*)&len);
-    
+	
    return (char*)data;
 }
 #pragma endregion
