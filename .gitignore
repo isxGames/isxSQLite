@@ -57,3 +57,4 @@ Git-Info.txt
 *.VC.db
 Bin
 .vs
+/.claude
