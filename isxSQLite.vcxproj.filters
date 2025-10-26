@@ -78,6 +78,9 @@
     <Filter Include="Header Files\Top Level Objects %28LavishScript 1%29">
       <UniqueIdentifier>{a0d7125a-66c7-4d10-b091-24c186cc2ce6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\UI">
+      <UniqueIdentifier>{c288d7fe-4805-4f48-b495-6e127743e638}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Globals.cpp">
@@ -130,6 +133,12 @@
     </ClCompile>
     <ClCompile Include="Pulse.cpp">
       <Filter>Source Files\Utilities\Pulse</Filter>
+    </ClCompile>
+    <ClCompile Include="RadarBase.cpp">
+      <Filter>Source Files\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Radar.cpp">
+      <Filter>Source Files\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -195,6 +204,12 @@
     </ClInclude>
     <ClInclude Include="libisxgames\libisxgames.h">
       <Filter>Source Files\libisxgames</Filter>
+    </ClInclude>
+    <ClInclude Include="RadarBase.h">
+      <Filter>Source Files\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Radar.h">
+      <Filter>Source Files\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

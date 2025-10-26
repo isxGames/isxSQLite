@@ -11,6 +11,7 @@
 // All isxSQLite global variables are declared in this file.
 //--------------------------------
 #pragma once
+#include "Radar.h"
 
 // Events
 extern unsigned int isxSQLite_onUpdateComplete;
@@ -42,3 +43,8 @@ extern void __cdecl isxSQLiteonDoShutdown(int argc, char *argv[], PLSOBJECT);
 
 // .NET
 extern unsigned int isxSQLiteClass;
+
+// Radar
+extern uint32_t gDefaultRadarTextFontColor;
+extern unsigned char gDefaultRadarTextFontSize;
+extern CIndex<LGUIGameRadar::FilterNode*> RadarFilters;

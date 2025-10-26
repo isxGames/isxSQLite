@@ -33,3 +33,5 @@ using namespace std;
 #include "Globals.h"
 #include "Pulse.h"
 #include "DataTypes.h"
+#include "RadarBase.h"
+#include "Radar.h"

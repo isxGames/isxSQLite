@@ -272,6 +272,8 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="Radar.cpp" />
+    <ClCompile Include="RadarBase.cpp" />
     <ClCompile Include="Services.cpp" />
     <ClCompile Include="Commands.cpp" />
     <ClCompile Include="ExtTopLevelObjects.cpp" />
@@ -303,6 +305,8 @@
     <ClInclude Include="Internals.h" />
     <ClInclude Include="libisxgames\libisxgames.h" />
     <ClInclude Include="Pulse.h" />
+    <ClInclude Include="Radar.h" />
+    <ClInclude Include="RadarBase.h" />
     <ClInclude Include="SQLite\CppSQLite3.h" />
     <ClInclude Include="SQLite\sqlite3.h" />
     <ClInclude Include="SQLite\sqlite3ext.h" />

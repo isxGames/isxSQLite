@@ -41,3 +41,8 @@ unsigned int isxSQLiteClass = 0;
 #define DATATYPE(_class_,_variable_,_inherits_) class _class_ *_variable_=0
 #include "DataTypeList.h"
 #undef DATATYPE
+
+// Radar
+uint32_t gDefaultRadarTextFontColor = 0;
+unsigned char gDefaultRadarTextFontSize = 0;
+CIndex<LGUIGameRadar::FilterNode*> RadarFilters;
