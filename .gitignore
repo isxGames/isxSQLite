@@ -58,3 +58,13 @@ Git-Info.txt
 Bin
 .vs
 /.claude
+/Install/Create-Installer.bat
+/Install/Extensions/isxSQLitepopup.xml
+/Install/Scripts/sqlite.iss
+/Install/UpdateReleaseFiles!.bat
+/Install/UploadTESTVersion.bat
+/Install/WinSCP__UploadRELEASE.txt
+/Install/WinSCP__UploadTESTVersion.txt
+/Install/isxSQLite-Install.iss
+/Install/isxSQLite-Install.nsi
+/Install/isxSQLiteManifest.xml
