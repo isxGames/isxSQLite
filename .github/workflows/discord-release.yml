@@ -1,0 +1,68 @@
+name: Discord notify - isxSQLite release
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  announce:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post release to Discord
+        env:
+          WEBHOOK_EQ2: ${{ secrets.DISCORD_WEBHOOK_EQ2 }}
+          WEBHOOK_EVE: ${{ secrets.DISCORD_WEBHOOK_EVE }}
+          WEBHOOK_PANTHEON: ${{ secrets.DISCORD_WEBHOOK_PANTHEON }}
+          REPO: ${{ github.repository }}
+          TAG: ${{ github.event.release.tag_name }}
+          REL_NAME: ${{ github.event.release.name }}
+          REL_URL: ${{ github.event.release.html_url }}
+          REL_BODY: ${{ github.event.release.body }}
+          PRERELEASE: ${{ github.event.release.prerelease }}
+          ACTOR: ${{ github.event.release.author.login }}
+        run: |
+          # title prefers the release name, falls back to the tag
+          title="$REL_NAME"
+          if [ -z "$title" ]; then title="$TAG"; fi
+          if [ "$PRERELEASE" = "true" ]; then title="$title (pre-release)"; fi
+
+          # release body, trimmed to keep the embed within Discord limits
+          desc="$REL_BODY"
+          if [ -z "$desc" ]; then desc="(no release notes)"; fi
+          desc=$(printf '%s' "$desc" | head -c 3500)
+
+          # green for a full release, amber for a pre-release
+          color=3066993
+          if [ "$PRERELEASE" = "true" ]; then color=15844367; fi
+
+          payload=$(jq -n \
+            --arg title  "🗃️ isxSQLite $title" \
+            --arg url    "$REL_URL" \
+            --arg desc   "$desc" \
+            --arg actor  "$ACTOR" \
+            --arg avatar "https://github.com/${ACTOR}.png" \
+            --arg ahref  "https://github.com/${ACTOR}" \
+            --arg repo   "$REPO" \
+            --arg tag    "$TAG" \
+            --argjson color "$color" \
+            --arg ts     "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            '{embeds: [{
+              author: {name: $actor, url: $ahref, icon_url: $avatar},
+              title: $title,
+              description: $desc,
+              url: $url,
+              color: $color,
+              timestamp: $ts,
+              fields: [
+                {name: "Repo",    value: $repo, inline: true},
+                {name: "Version", value: $tag,  inline: true}
+              ],
+              footer: {text: "isxSQLite · GitHub Releases"}
+            }]}')
+
+          for url in "$WEBHOOK_EQ2" "$WEBHOOK_EVE" "$WEBHOOK_PANTHEON"; do
+            if [ -n "$url" ]; then
+              curl -sf -H "Content-Type: application/json" -d "$payload" "$url"
+            fi
+          done
