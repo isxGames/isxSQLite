@@ -9,6 +9,7 @@
 #define CppSQLite3_H
 
 #include <cstdint>
+#include <exception>
 #include "sqlite3.h"
 #include <cstdio>
 #include <cstring>
@@ -60,7 +61,7 @@ namespace detail
 }
 
 
-class CppSQLite3Exception
+class CppSQLite3Exception : public std::exception
 {
 public:
 
@@ -70,11 +71,13 @@ public:
 
     CppSQLite3Exception(const CppSQLite3Exception&  e);
 
-    virtual ~CppSQLite3Exception();
+    virtual ~CppSQLite3Exception() override;
 
     const int errorCode() const { return mnErrCode; }
 
     const char* errorMessage() const { return mpszErrMess; }
+
+    const char* what() const noexcept override { return mpszErrMess; }
 
     static const char* errorCodeAsString(int nErrCode);
 
@@ -308,7 +311,7 @@ public:
 
     CppSQLite3Query execQuery(const char* szSQL);
 
-    int execScalar(const char* szSQL);
+    int execScalar(const char* szSQL, int nNullSentinel=0);
 
     CppSQLite3Table getTable(const char* szSQL);
 

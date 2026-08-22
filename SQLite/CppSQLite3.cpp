@@ -78,7 +78,10 @@ SQLite3Memory::SQLite3Memory(SQLite3Memory const& other) :
                                 ALLOCATION_ERROR_MESSAGE,
                                 DONT_DELETE_MSG);
     }
-    std::memcpy(mpBuf, other.mpBuf, mnBufferLen);
+    if (mnBufferLen > 0)
+    {
+        std::memcpy(mpBuf, other.mpBuf, mnBufferLen);
+    }
 }
 
 SQLite3Memory& SQLite3Memory::operator=(SQLite3Memory const& lhs)
@@ -205,20 +208,22 @@ void CppSQLite3Buffer::clear()
 
 const char* CppSQLite3Buffer::format(const char* szFormat, ...)
 {
-    clear();
     va_list va;
+    detail::SQLite3Memory tmpBuf;
     try
     {
         va_start(va, szFormat);
-        mBuf = detail::SQLite3Memory(szFormat, va);
+        tmpBuf = detail::SQLite3Memory(szFormat, va);
         va_end(va);
-        return static_cast<const char*>(mBuf.getBuffer());
     }
     catch(CppSQLite3Exception&)
     {
         va_end(va);
         throw;
     }
+
+    mBuf = std::move(tmpBuf);
+    return static_cast<const char*>(mBuf.getBuffer());
 }
 
 
@@ -1389,7 +1394,7 @@ CppSQLite3Query CppSQLite3DB::execQuery(const char* szSQL)
 }
 
 
-int CppSQLite3DB::execScalar(const char* szSQL)
+int CppSQLite3DB::execScalar(const char* szSQL, int nNullSentinel/*=0*/)
 {
     CppSQLite3Query q = execQuery(szSQL);
 
@@ -1400,7 +1405,7 @@ int CppSQLite3DB::execScalar(const char* szSQL)
                                 DONT_DELETE_MSG);
     }
 
-    return atoi(q.fieldValue(0));
+    return q.getIntField(0, nNullSentinel);
 }
 
 
@@ -1592,7 +1597,7 @@ sqlite3_stmt* CppSQLite3DB::compile(const char* szSQL)
 ** string, excluding the "\000" terminator.
 */
 int sqlite3_encode_binary(const unsigned char *in, int n, unsigned char *out){
-  int i, j, e, m;
+  int i, j, e = 0, m;
   int cnt[256];
   if( n<=0 ){
     out[0] = 'x';

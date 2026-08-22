@@ -1,6 +1,8 @@
 August 22, 2026
-[20260822.0001]
+[20260822.0002]
 * isxSQLite is now a 64-bit extension (installs to x64\Extensions\ISXDK35)
+* Upgrade SQLite from 3.32.3 to 3.53.4
+* Merge upstream CppSQLite3 fixes (NULL-safe scalar, exception safety, UB fixes)
 
 June 17, 2026
 [20260617.0001]
