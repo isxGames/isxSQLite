@@ -18,6 +18,9 @@
 ////////////////////////////////////////////////////////////////////
 //// Definitions for libisxgames "globals" 
 ////////////////////////////////////////////////////////////////////
+// isxSQLite-only vendored file; silence benign C4267 (size_t -> unsigned) narrowings.
+#pragma warning(disable: 4267)
+
 ISInterface *pISInterface=0;
 bool gDoPreUnloadExtension;
 bool gDoUnloadExtension;

@@ -23,7 +23,7 @@ unsigned int isxSQLite_onStatusMsg = 0;
 unsigned int MainXMLFileID = 0;	
 
 // Arrays
-std::tr1::unordered_map<std::string,CppSQLite3DB*> gDatabases;
+std::unordered_map<std::string,CppSQLite3DB*> gDatabases;
 int gQueriesCounter = 0;
 std::map<int,CppSQLite3Query*> gQueries;
 int gTablesCounter = 0;

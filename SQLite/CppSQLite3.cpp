@@ -9,6 +9,9 @@
 #include <cstdlib>
 #include <utility>
 
+// isxSQLite-only vendored file; silence benign C4267 (size_t -> int) narrowings.
+#pragma warning(disable: 4267)
+
 
 // Named constant for passing to CppSQLite3Exception when passing it a string
 // that cannot be deleted.

@@ -15,7 +15,7 @@ bool SQLiteDBType::ToText(LSOBJECTDATA ObjectData, char *buf, unsigned int bufle
 	if (ObjectData.CharPtr == nullptr)
 		return false;
 
-	std::tr1::unordered_map<std::string,CppSQLite3DB*>::iterator It = gDatabases.find(ObjectData.CharPtr);
+	std::unordered_map<std::string,CppSQLite3DB*>::iterator It = gDatabases.find(ObjectData.CharPtr);
 	if (It == gDatabases.end())
 		return false;
 	CppSQLite3DB *pDB = It->second;
@@ -32,7 +32,7 @@ bool SQLiteDBType::GetMember(LSOBJECTDATA ObjectData, PLSTYPEMEMBER pMember, int
 	if (ObjectData.CharPtr == nullptr)
 		return false;
 
-	std::tr1::unordered_map<std::string,CppSQLite3DB*>::iterator It = gDatabases.find(ObjectData.CharPtr);
+	std::unordered_map<std::string,CppSQLite3DB*>::iterator It = gDatabases.find(ObjectData.CharPtr);
 	if (It == gDatabases.end())
 		return false;
 	CppSQLite3DB *pDB = It->second;
@@ -95,7 +95,7 @@ bool SQLiteDBType::GetMethod(LSOBJECTDATA &ObjectData, PLSTYPEMETHOD pMethod, in
 	if (ObjectData.CharPtr == nullptr)
 		return false;
 
-	std::tr1::unordered_map<std::string,CppSQLite3DB*>::iterator It = gDatabases.find(ObjectData.CharPtr);
+	std::unordered_map<std::string,CppSQLite3DB*>::iterator It = gDatabases.find(ObjectData.CharPtr);
 	if (It == gDatabases.end())
 		return false;
 	CppSQLite3DB *pDB = It->second;

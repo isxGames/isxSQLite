@@ -100,7 +100,7 @@ CppSQLite3DB* OpenDatabase(std::string Name, std::string FileName, LavishScript2
 
 void CloseAllDatabases()
 {
-	for (std::tr1::unordered_map<std::string,CppSQLite3DB*>::iterator It = gDatabases.begin(); It != gDatabases.end(); ++It)
+	for (std::unordered_map<std::string,CppSQLite3DB*>::iterator It = gDatabases.begin(); It != gDatabases.end(); ++It)
 	{
 		CppSQLite3DB *pDB = It->second;
 

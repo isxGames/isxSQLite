@@ -15,17 +15,14 @@
 #pragma comment(lib,"delayimp")
 
 #ifdef USE_LIBISXGAMES
-	#pragma comment(lib, "isxGames")
-	#pragma comment(lib, "ws2_32.lib")
-	#pragma comment(lib, "tidylib.lib")
-	#pragma comment(lib, "libeay32_lib.lib")
-	#pragma comment(lib, "ssleay32_lib.lib")
-	#pragma comment(lib, "zlibstat.lib")
-	#pragma comment(lib, "libcurl.lib")
+	#pragma comment(lib, "ws2_32")
+	#pragma comment(lib, "Psapi")
+	#pragma comment(lib, "crypt32")
 	#pragma comment(lib, "bcrypt")
 	#pragma comment(lib, "secur32")
 	#pragma comment(lib, "iphlpapi")
-	#pragma comment(lib,"isxdk_md")
+	#pragma comment(lib, "isxdk_md")
+	#pragma comment(lib, "dbghelp.lib")
 #else
 	#pragma comment(lib,"isxdk")
 #endif
@@ -173,7 +170,6 @@ void __cdecl isxSQLitePostInitialize(int argc, char *argv[], PLSOBJECT)
 		return;
 
 	pExtension->RegisterCommands();
-	pExtension->RegisterAliases();
 	pExtension->RegisterDataTypes();
 	pExtension->RegisterTopLevelObjects();
 	pExtension->RegisterServices();
@@ -207,7 +203,6 @@ void isxGamesExtension::Shutdown()
 		{
 			UnRegisterTopLevelObjects();
 			UnRegisterDataTypes();
-			UnRegisterAliases();
 			UnRegisterCommands();
 			if (gDetoursActive)
 				UnRegisterDetours();
@@ -268,11 +263,6 @@ void isxGamesExtension::RegisterCommands()
 	#undef COMMAND
 }
 
-void isxGamesExtension::RegisterAliases()
-{
-	// add any aliases
-}
-
 void isxGamesExtension::RegisterExtDataTypes()
 {
 	#define DATATYPE(_class_,_variable_,_inherits_) _variable_ = new _class_; pISInterface->AddLSType(*_variable_); _variable_->SetInheritance(_inherits_);
@@ -321,10 +311,6 @@ void isxGamesExtension::UnRegisterCommands()
 	#define COMMAND(name,cmd,parse,hide) pISInterface->RemoveCommand(name);
 	#include "Commands.h"
 	#undef COMMAND
-}
-void isxGamesExtension::UnRegisterAliases()
-{
-	// remove aliases
 }
 
 void isxGamesExtension::UnRegisterDataTypes()

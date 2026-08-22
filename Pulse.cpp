@@ -37,7 +37,6 @@ void Pulse()
 	{
 		pExtension->UnRegisterTopLevelObjects();
 		pExtension->UnRegisterDataTypes();
-		pExtension->UnRegisterAliases();
 		pExtension->UnRegisterCommands();
 		if (gDetoursActive)
 			pExtension->UnRegisterDetours();

@@ -58,7 +58,6 @@ public:
 	virtual void ConnectPulseService();
 	virtual void ConnectServices();
 	virtual void RegisterCommands();
-	virtual void RegisterAliases();
 	virtual void RegisterDataTypes();
 	virtual void RegisterExtDataTypes();
 	virtual void RegisterTopLevelObjects();
@@ -69,7 +68,6 @@ public:
 
 	virtual void DisconnectServices();
 	virtual void UnRegisterCommands();
-	virtual void UnRegisterAliases();
 	virtual void UnRegisterDataTypes();
 	virtual void UnRegisterExtDataTypes();
 	virtual void UnRegisterTopLevelObjects();

@@ -1,7 +1,6 @@
 August 22, 2026
-[20260822.xxxx]
-* Updated the bundled libcurl to 8.21.0.  This means that GetURL now completes HTTPS requests to servers that require TLS 1.2/1.3
-* Connection-error messages now include the libcurl error name, e.g. "Error: CURLE_SSL_CONNECT_ERROR (35)" instead of "Error: 35".
+[20260822.0001]
+* isxSQLite is now a 64-bit extension (installs to x64\Extensions\ISXDK35)
 
 June 17, 2026
 [20260617.0001]
@@ -29,7 +28,6 @@ April 1, 2012
   - Examples:
     a.   echo ${SQLite.Escape_String['test']}  returns:  ''test''
 
-
 February 7, 2011
 [isxSQLite-20110207.0001]
 CLARIFICATIONS:
@@ -39,7 +37,6 @@ CLARIFICATIONS:
     why the do/while loop in the tutorial scripts works as it is.)
 2.  "ExecQuery" and "GetTable" statements which do not return any results (or result in an error) finalize automatically.  
 
-
 February 3, 2011
 [isxSQLite-20110203.0003]
 * You may now initialize sqlitedb, sqlitetable, and sqlitequery variables without setting them.
@@ -48,7 +45,6 @@ The "ExecDMLTransaction" METHOD of the 'sqlitedb' datatype inserts the the DML s
 "BEGIN TRANSACTION;" prior to the ones you submit, and then includes "END TRANSACTION;" 
 after all of your statements have been executed.   In other words, you do *NOT* need to 
 include these directives when using the "ExecDMLTransaction" method.
-
 
 February 3, 2011
 [isxSQLite-20110203.0001]

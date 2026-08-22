@@ -24,7 +24,7 @@ extern char XMLFileName[MAX_PATH];
 extern unsigned int MainXMLFileID;
 
 // Arrays
-extern std::tr1::unordered_map<std::string,CppSQLite3DB*> gDatabases;
+extern std::unordered_map<std::string,CppSQLite3DB*> gDatabases;
 extern int gQueriesCounter;
 extern std::map<int,CppSQLite3Query*> gQueries;
 extern int gTablesCounter;

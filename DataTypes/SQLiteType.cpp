@@ -34,7 +34,7 @@ bool SQLiteType::GetMember(LSOBJECTDATA ObjectData, PLSTYPEMEMBER pMember, int a
 			if (argc != 2)
 				return false;
 
-			std::tr1::unordered_map<std::string,CppSQLite3DB*>::iterator i = gDatabases.find(argv[0]);
+			std::unordered_map<std::string,CppSQLite3DB*>::iterator i = gDatabases.find(argv[0]);
 			if (i != gDatabases.end())
 			{
 				#pragma region isxSQLite_onErrorMsg

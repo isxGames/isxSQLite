@@ -1,9 +1,27 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.37328.6 d17.14
+VisualStudioVersion = 17.14.37328.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "isxSQLite", "isxSQLite.vcxproj", "{6053FCD4-5A35-49CE-B239-A9F74E25532B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3E9A1C58-0E9F-4785-9B78-E5688346FE1A} = {3E9A1C58-0E9F-4785-9B78-E5688346FE1A}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libisxgames", "libisxgames", "{FCB992B5-8C38-4483-BA6E-5A52757D83AE}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "isxGames", "..\libisxGames\isxGames.vcxproj", "{3E9A1C58-0E9F-4785-9B78-E5688346FE1A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A2C8222F-7B50-99A7-8AA4-EE1D5AE63BE9} = {A2C8222F-7B50-99A7-8AA4-EE1D5AE63BE9}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3rd Party Libraries", "3rd Party Libraries", "{2829EAC4-05B2-4280-BA52-055F059FB6DB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libtidy", "..\libisxGames\3rdParty\libTidy\build\tidylib\tidylib.vcxproj", "{5F775C7B-5A2A-40AA-A86D-05016EAAB6DC}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libcurl", "..\libisxGames\3rdParty\libcurl\curl\projects\Windows\VC14\lib\libcurl.vcxproj", "{A2C8222F-7B50-99A7-8AA4-EE1D5AE63BE9}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zlibstat", "..\libisxGames\3rdParty\libcurl\zlib\contrib\vstudio\vc14\zlibstat.vcxproj", "{745DEC58-EBB3-47A9-A9B8-4C6627C01BF8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,17 +31,48 @@ Global
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6053FCD4-5A35-49CE-B239-A9F74E25532B}.Release - with libisxgames|Win32.ActiveCfg = Release - with libisxgames|Win32
-		{6053FCD4-5A35-49CE-B239-A9F74E25532B}.Release - with libisxgames|Win32.Build.0 = Release - with libisxgames|Win32
+		{6053FCD4-5A35-49CE-B239-A9F74E25532B}.Release - with libisxgames|Win32.ActiveCfg = Release - with libisxgames|x64
+		{6053FCD4-5A35-49CE-B239-A9F74E25532B}.Release - with libisxgames|Win32.Build.0 = Release - with libisxgames|x64
 		{6053FCD4-5A35-49CE-B239-A9F74E25532B}.Release - with libisxgames|x64.ActiveCfg = Release - with libisxgames|x64
 		{6053FCD4-5A35-49CE-B239-A9F74E25532B}.Release - with libisxgames|x64.Build.0 = Release - with libisxgames|x64
 		{6053FCD4-5A35-49CE-B239-A9F74E25532B}.Release|Win32.ActiveCfg = Release|x64
 		{6053FCD4-5A35-49CE-B239-A9F74E25532B}.Release|Win32.Build.0 = Release|x64
 		{6053FCD4-5A35-49CE-B239-A9F74E25532B}.Release|x64.ActiveCfg = Release|x64
 		{6053FCD4-5A35-49CE-B239-A9F74E25532B}.Release|x64.Build.0 = Release|x64
+		{3E9A1C58-0E9F-4785-9B78-E5688346FE1A}.Release - with libisxgames|Win32.ActiveCfg = Release|x64
+		{3E9A1C58-0E9F-4785-9B78-E5688346FE1A}.Release - with libisxgames|Win32.Build.0 = Release|x64
+		{3E9A1C58-0E9F-4785-9B78-E5688346FE1A}.Release - with libisxgames|x64.ActiveCfg = Release|x64
+		{3E9A1C58-0E9F-4785-9B78-E5688346FE1A}.Release - with libisxgames|x64.Build.0 = Release|x64
+		{3E9A1C58-0E9F-4785-9B78-E5688346FE1A}.Release|Win32.ActiveCfg = Release|x64
+		{3E9A1C58-0E9F-4785-9B78-E5688346FE1A}.Release|x64.ActiveCfg = Release|x64
+		{5F775C7B-5A2A-40AA-A86D-05016EAAB6DC}.Release - with libisxgames|Win32.ActiveCfg = Release|x64
+		{5F775C7B-5A2A-40AA-A86D-05016EAAB6DC}.Release - with libisxgames|Win32.Build.0 = Release|x64
+		{5F775C7B-5A2A-40AA-A86D-05016EAAB6DC}.Release - with libisxgames|x64.ActiveCfg = Release|x64
+		{5F775C7B-5A2A-40AA-A86D-05016EAAB6DC}.Release - with libisxgames|x64.Build.0 = Release|x64
+		{5F775C7B-5A2A-40AA-A86D-05016EAAB6DC}.Release|Win32.ActiveCfg = Release|x64
+		{5F775C7B-5A2A-40AA-A86D-05016EAAB6DC}.Release|x64.ActiveCfg = Release|x64
+		{A2C8222F-7B50-99A7-8AA4-EE1D5AE63BE9}.Release - with libisxgames|Win32.ActiveCfg = LIB Release - LIB OpenSSL|x64
+		{A2C8222F-7B50-99A7-8AA4-EE1D5AE63BE9}.Release - with libisxgames|Win32.Build.0 = LIB Release - LIB OpenSSL|x64
+		{A2C8222F-7B50-99A7-8AA4-EE1D5AE63BE9}.Release - with libisxgames|x64.ActiveCfg = LIB Release - LIB OpenSSL|x64
+		{A2C8222F-7B50-99A7-8AA4-EE1D5AE63BE9}.Release - with libisxgames|x64.Build.0 = LIB Release - LIB OpenSSL|x64
+		{A2C8222F-7B50-99A7-8AA4-EE1D5AE63BE9}.Release|Win32.ActiveCfg = LIB Release - LIB OpenSSL|x64
+		{A2C8222F-7B50-99A7-8AA4-EE1D5AE63BE9}.Release|x64.ActiveCfg = LIB Release - LIB OpenSSL|x64
+		{745DEC58-EBB3-47A9-A9B8-4C6627C01BF8}.Release - with libisxgames|Win32.ActiveCfg = ReleaseWithoutAsm|x64
+		{745DEC58-EBB3-47A9-A9B8-4C6627C01BF8}.Release - with libisxgames|Win32.Build.0 = ReleaseWithoutAsm|x64
+		{745DEC58-EBB3-47A9-A9B8-4C6627C01BF8}.Release - with libisxgames|x64.ActiveCfg = ReleaseWithoutAsm|x64
+		{745DEC58-EBB3-47A9-A9B8-4C6627C01BF8}.Release - with libisxgames|x64.Build.0 = ReleaseWithoutAsm|x64
+		{745DEC58-EBB3-47A9-A9B8-4C6627C01BF8}.Release|Win32.ActiveCfg = ReleaseWithoutAsm|x64
+		{745DEC58-EBB3-47A9-A9B8-4C6627C01BF8}.Release|x64.ActiveCfg = ReleaseWithoutAsm|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3E9A1C58-0E9F-4785-9B78-E5688346FE1A} = {FCB992B5-8C38-4483-BA6E-5A52757D83AE}
+		{2829EAC4-05B2-4280-BA52-055F059FB6DB} = {FCB992B5-8C38-4483-BA6E-5A52757D83AE}
+		{5F775C7B-5A2A-40AA-A86D-05016EAAB6DC} = {2829EAC4-05B2-4280-BA52-055F059FB6DB}
+		{A2C8222F-7B50-99A7-8AA4-EE1D5AE63BE9} = {2829EAC4-05B2-4280-BA52-055F059FB6DB}
+		{745DEC58-EBB3-47A9-A9B8-4C6627C01BF8} = {2829EAC4-05B2-4280-BA52-055F059FB6DB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {18621314-0FC6-4ABF-A818-698C9A65B0A1}

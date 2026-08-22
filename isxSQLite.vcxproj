@@ -22,30 +22,30 @@
     <ProjectGuid>{6053FCD4-5A35-49CE-B239-A9F74E25532B}</ProjectGuid>
     <RootNamespace>isxSQLite</RootNamespace>
     <Keyword>Win32Proj</Keyword>
-    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -81,10 +81,10 @@
     <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|x64'">$(IncludePath)</IncludePath>
     <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)ISXDK\35\lib\vs14;$(LibraryPath)</LibraryPath>
     <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)ISXDK\35\lib64\vs14;$(LibraryPath)</LibraryPath>
-    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">$(LibraryPath)</LibraryPath>
-    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|x64'">$(LibraryPath)</LibraryPath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|Win32'">$(ISXDKPATH)lib\vs14;$(LibraryPath)</LibraryPath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|x64'">$(ISXDKPATH)lib64\vs14;$(LibraryPath)</LibraryPath>
     <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</PostBuildEventUseInBuild>
-    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</PostBuildEventUseInBuild>
+    <PostBuildEventUseInBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release - with libisxgames|x64'">
     <OutDir>$(SolutionDir)Bin\$(Configuration).$(PlatformShortName)\</OutDir>
@@ -131,7 +131,7 @@
     </Link>
     <PostBuildEvent>
       <Message>Running isxSQLite Post-Build Events</Message>
-      <Command>$(SolutionDir)PostBuild.bat "$(ProjectDir)" "$(TargetDir)" $(TargetName) TRUE $(ISXDKVERSION)</Command>
+      <Command>$(SolutionDir)PostBuild.bat "$(ProjectDir)" "$(TargetDir)" $(TargetName) FALSE $(ISXDKVERSION)</Command>
     </PostBuildEvent>
     <ResourceCompile>
       <PreprocessorDefinitions>USE_LIBISXGAMES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -173,7 +173,7 @@
     </Link>
     <PostBuildEvent>
       <Message>Running isxSQLite Post-Build Events</Message>
-      <Command>$(SolutionDir)PostBuild.bat "$(ProjectDir)" "$(TargetDir)" $(TargetName) TRUE $(ISXDKVERSION)</Command>
+      <Command>$(SolutionDir)PostBuild.bat "$(ProjectDir)" "$(TargetDir)" $(TargetName) FALSE $(ISXDKVERSION)</Command>
     </PostBuildEvent>
     <ResourceCompile>
       <PreprocessorDefinitions>USE_LIBISXGAMES;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -256,8 +256,8 @@
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
     </Link>
     <PostBuildEvent>
-      <Message>
-      </Message>
+      <Message>Running isxSQLite Post-Build Events</Message>
+      <Command>$(SolutionDir)PostBuild.bat "$(ProjectDir)" "$(TargetDir)" $(TargetName) FALSE $(ISXDKVERSION)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -325,6 +325,48 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="isxSQLite.rc" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(Configuration)'=='Release - with libisxgames'">
+    <ProjectReference Include="..\libisxGames\isxGames.vcxproj">
+      <Project>{3e9a1c58-0e9f-4785-9b78-e5688346fe1a}</Project>
+      <SetConfiguration>Configuration=Release</SetConfiguration>
+      <SetPlatform>Platform=x64</SetPlatform>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
+    <ProjectReference Include="..\libisxGames\3rdParty\libcurl\curl\projects\Windows\VC14\lib\libcurl.vcxproj">
+      <Project>{063c86d0-b77c-9864-6cd4-185c4361fa85}</Project>
+      <SetConfiguration>Configuration=LIB Release - LIB OpenSSL</SetConfiguration>
+      <SetPlatform>Platform=x64</SetPlatform>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
+    <ProjectReference Include="..\libisxGames\3rdParty\libcurl\zlib\contrib\vstudio\vc14\zlibstat.vcxproj">
+      <Project>{745dec58-ebb3-47a9-a9b8-4c6627c01bf8}</Project>
+      <SetConfiguration>Configuration=ReleaseWithoutAsm</SetConfiguration>
+      <SetPlatform>Platform=x64</SetPlatform>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
+    <ProjectReference Include="..\libisxGames\3rdParty\libTidy\build\tidylib\tidylib.vcxproj">
+      <Project>{5f775c7b-5a2a-40aa-a86d-05016eaab6dc}</Project>
+      <SetConfiguration>Configuration=Release</SetConfiguration>
+      <SetPlatform>Platform=x64</SetPlatform>
+      <Private>false</Private>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

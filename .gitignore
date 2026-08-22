@@ -70,3 +70,6 @@ Bin
 /Install/isxSQLiteManifest.xml
 /Install/Publish-Release-On-Github.bat
 /Install/Publish-Release-On-Github.ps1
+/Install/x64/Extensions/ISXDK35/isxSQLite.pdb
+/Install/x64/Extensions/ISXDK35/isxSQLiteChanges.txt
+/Install/x64/Extensions/isxSQLitepopup.xml
