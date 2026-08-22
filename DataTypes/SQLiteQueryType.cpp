@@ -199,7 +199,7 @@ bool SQLiteQueryType::GetMember(LSOBJECTDATA ObjectData, PLSTYPEMEMBER pMember, 
 						else
 							Dest.Float64 = pQuery->getFloatField(argv[0]);
 
-						Dest.Type = pFloat64PtrType;
+						Dest.Type = pFloat64Type;
 						break;
 					}
 					case RDT_INT64:
@@ -220,6 +220,7 @@ bool SQLiteQueryType::GetMember(LSOBJECTDATA ObjectData, PLSTYPEMEMBER pMember, 
 							Dest.Int = pQuery->getIntField(argv[0]);
 
 						Dest.Type = pIntType;
+						break;
 					}
 					default:
 					{

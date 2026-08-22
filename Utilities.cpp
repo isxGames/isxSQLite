@@ -72,9 +72,8 @@ CppSQLite3DB* OpenDatabase(std::string Name, std::string FileName, LavishScript2
 								"PRAGMA cache_size = 2048;"
 								"PRAGMA page_size = 4096;"
 								"PRAGMA synchronous = NORMAL;"
-								"PRAGMA journal_mode = OFF;"
-								"PRAGMA temp_store = MEMORY;"
-								"PRAGMA synchronous = OFF;" );
+								"PRAGMA journal_mode = WAL;"
+								"PRAGMA temp_store = MEMORY;" );
 		}
 		catch (CppSQLite3Exception& e)
 		{
@@ -196,23 +195,6 @@ int ExecQuery(CppSQLite3DB *pDB, const char *sql, LavishScript2::LS2Exception **
 		};
 		pISInterface->ExecuteEvent(isxSQLite_onErrorMsg,0,2,argv,0);
 		#pragma endregion
-		delete q;
-		return false;
-	}
-
-	if (q->eof())
-	{
-		#pragma region isxSQLite_onErrorMsg
-		if (!gQuietMode)
-			printf("SQLiteDBType.ExecQuery:: Query returned no results.");
-				
-		char *argv[] = {
-			(char*)"-1",
-			(char*)"SQLiteDBType.ExecQuery:: Query returned no results."
-		};
-		pISInterface->ExecuteEvent(isxSQLite_onErrorMsg,0,2,argv,0);
-		#pragma endregion 
-		q->finalize();
 		delete q;
 		return false;
 	}

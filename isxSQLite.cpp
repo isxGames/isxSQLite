@@ -22,6 +22,9 @@
 	#pragma comment(lib, "ssleay32_lib.lib")
 	#pragma comment(lib, "zlibstat.lib")
 	#pragma comment(lib, "libcurl.lib")
+	#pragma comment(lib, "bcrypt")
+	#pragma comment(lib, "secur32")
+	#pragma comment(lib, "iphlpapi")
 	#pragma comment(lib,"isxdk_md")
 #else
 	#pragma comment(lib,"isxdk")

@@ -1,3 +1,17 @@
+August 22, 2026
+[20260822.xxxx]
+* Updated the bundled libcurl to 8.21.0.  This means that GetURL now completes HTTPS requests to servers that require TLS 1.2/1.3
+* Connection-error messages now include the libcurl error name, e.g. "Error: CURLE_SSL_CONNECT_ERROR (35)" instead of "Error: 35".
+
+June 17, 2026
+[20260617.0001]
+* Fix isxSQLite GetFieldValue type bugs and harden DB durability
+- SQLiteQueryType::GetFieldValue: add the missing RDT_INT `break` so `GetFieldValue[i,int]` returns an int instead of a string
+- SQLiteTableType::GetFieldValue: read the type keyword from argv[1] (was argv[0]) and add all three missing case `break`s that were making every typed read fall through to the string default
+- Both GetFieldValue handlers: return the `float64` value type, not `float64ptr` (a value was being tagged as a pointer, causing garbage/crash on read)
+- ExecQuery: a zero-row query now returns a valid empty query (check `${Query.NumRows}`) instead of firing an error and returning null
+- New databases: open with journal_mode=WAL and synchronous=NORMAL for crash safety (were journal_mode=OFF/synchronous=OFF, corruption risk), and removed the dead duplicate `synchronous` PRAGMA
+
 August 12, 2020
 [isxSQLite-20200812.0001]
 * Removed LavishScript 2 datatypes and code. LS2 was cancelled by LavishSoft

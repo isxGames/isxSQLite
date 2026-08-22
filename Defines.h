@@ -13,9 +13,9 @@
 // VERSION
 #define EXTENSION_NAME										"isxSQLite"
 
-#define _EXT_VER_YEAR										2020
-#define _EXT_VER_MONTH										08
-#define _EXT_VER_DAY										12
+#define _EXT_VER_YEAR										2026
+#define _EXT_VER_MONTH										06
+#define _EXT_VER_DAY										17
 
 #ifdef USE_LIBISXGAMES
 #include <boost/preprocessor/cat.hpp>

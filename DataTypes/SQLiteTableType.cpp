@@ -91,10 +91,10 @@ bool SQLiteTableType::GetMember(LSOBJECTDATA ObjectData, PLSTYPEMEMBER pMember, 
 			int ReturnDT = RDT_STRING;
 			if (argc == 2)
 			{
-				if (!stricmp(argv[0],"int"))			ReturnDT = RDT_INT;
-				else if (!stricmp(argv[0],"float"))		ReturnDT = RDT_DOUBLE;
-				else if (!stricmp(argv[0],"double"))	ReturnDT = RDT_DOUBLE;
-				else if (!stricmp(argv[0],"int64"))		ReturnDT = RDT_INT64;
+				if (!stricmp(argv[1],"int"))			ReturnDT = RDT_INT;
+				else if (!stricmp(argv[1],"float"))		ReturnDT = RDT_DOUBLE;
+				else if (!stricmp(argv[1],"double"))	ReturnDT = RDT_DOUBLE;
+				else if (!stricmp(argv[1],"int64"))		ReturnDT = RDT_INT64;
 			}
 			if (argc < 1)
 				return false;
@@ -110,7 +110,8 @@ bool SQLiteTableType::GetMember(LSOBJECTDATA ObjectData, PLSTYPEMEMBER pMember, 
 						else
 							Dest.Float64 = pTable->getFloatField(argv[0]);
 
-						Dest.Type = pFloat64PtrType;
+						Dest.Type = pFloat64Type;
+						break;
 					}
 					case RDT_INT64:
 					{
@@ -120,6 +121,7 @@ bool SQLiteTableType::GetMember(LSOBJECTDATA ObjectData, PLSTYPEMEMBER pMember, 
 							Dest.Int64 = pTable->getInt64Field(argv[0]);
 
 						Dest.Type = pInt64Type;
+						break;
 					}
 					case RDT_INT:
 					{
@@ -129,6 +131,7 @@ bool SQLiteTableType::GetMember(LSOBJECTDATA ObjectData, PLSTYPEMEMBER pMember, 
 							Dest.Int = pTable->getIntField(argv[0]);
 
 						Dest.Type = pIntType;
+						break;
 					}
 					default:
 					{
