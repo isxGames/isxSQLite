@@ -15,7 +15,7 @@
 
 #define _EXT_VER_YEAR										2026
 #define _EXT_VER_MONTH										08
-#define _EXT_VER_DAY										22
+#define _EXT_VER_DAY										24
 
 #ifdef USE_LIBISXGAMES
 #include <boost/preprocessor/cat.hpp>

@@ -1,11 +1,15 @@
+August 24, 2026
+[20260824]
+* Fix GetFieldValue NULL-deref on zero-row/NULL results (use getStringField)
+
 August 22, 2026
-[20260822.0002]
+[20260822]
 * isxSQLite is now a 64-bit extension (installs to x64\Extensions\ISXDK35)
 * Upgrade SQLite from 3.32.3 to 3.53.4
 * Merge upstream CppSQLite3 fixes (NULL-safe scalar, exception safety, UB fixes)
 
 June 17, 2026
-[20260617.0001]
+[20260617]
 * Fix isxSQLite GetFieldValue type bugs and harden DB durability
 - SQLiteQueryType::GetFieldValue: add the missing RDT_INT `break` so `GetFieldValue[i,int]` returns an int instead of a string
 - SQLiteTableType::GetFieldValue: read the type keyword from argv[1] (was argv[0]) and add all three missing case `break`s that were making every typed read fall through to the string default

@@ -137,9 +137,9 @@ bool SQLiteTableType::GetMember(LSOBJECTDATA ObjectData, PLSTYPEMEMBER pMember, 
 					{
 						std::string Buffer;
 						if (IsNumber(argv[0]))
-							Buffer = (char*)pTable->fieldValue(atoi(argv[0]));
+							Buffer = (char*)pTable->getStringField(atoi(argv[0]));
 						else
-							Buffer = (char*)pTable->fieldValue(argv[0]);
+							Buffer = (char*)pTable->getStringField(argv[0]);
 						Dest.ConstCharPtr = ISXGames::GetTempBuffer.Convert(Buffer);
 						Dest.Type = pStringType;
 					}
